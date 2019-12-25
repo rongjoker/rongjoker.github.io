@@ -12,4 +12,4 @@
 
 ### 文字列表
 
-####  [对程序员的灵魂拷打：我们为什么要造轮子](https://help.github.com/categories/github-pages-basics/) 
+####  [对程序员的灵魂拷打：我们为什么要造轮子](https://github.com/rongjoker/rongjoker.github.io/blob/master/blog/whywemakecycle.md) 
