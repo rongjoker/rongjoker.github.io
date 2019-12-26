@@ -15,6 +15,6 @@
 ####  [基于layui+springcloud的企业级微服务框架](https://gitee.com/owenwangwen/open-capacity-platform)
 
 ### 文字列表
-####  [程序员的纸篓](https://github.com/rongjoker/rongjoker.github.io/blob/master/blog/programmerswastebasket.md) 
-####  [我们为什么要造轮子](blog/whywemakecycle.md) 
+####  [程序员的纸篓](blog/programmerswastebasket.md) 
+####  [我们为什么要造轮子](blog/whywemakecycle/whywemakecycle.md) 
 
