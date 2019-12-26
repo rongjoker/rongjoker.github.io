@@ -10,7 +10,7 @@ http无状态，又是基于tcp，所以每次请求都要握手分手，在频�
 
 <p>先看tomcat,以主流的nio实现为例</p>
 
-<p>在NioEndpoint.SocketProcessor#doRun的方法中会处理三次握手:
+<p>在NioEndpoint.SocketProcessor#doRun的方法中会处理三次握手:</p>
 
 
 ```
@@ -47,7 +47,7 @@ http无状态，又是基于tcp，所以每次请求都要握手分手，在频�
                     processorCache.push(this);
                 }
 ```
-</p>
+
 
 
 下次Poller在执行processSocket 中会先判断processorCache是否为空，不为空则拿出来直接使用，跳过三次握手
