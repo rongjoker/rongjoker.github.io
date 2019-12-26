@@ -10,11 +10,10 @@ http无状态，又是基于tcp，所以每次请求都要握手分手，在频�
 
 <p>先看tomcat,以主流的nio实现为例</p>
 
-<p>在NioEndpoint.SocketProcessor#doRun的方法中会处理三次握手:</p>
+在NioEndpoint.SocketProcessor#doRun的方法中会处理三次握手:
 
 
 ```
-
                 if (handshake == 0) {
                     log.info("开启三次握手验证");
                     SocketState state = SocketState.OPEN;
@@ -37,11 +36,9 @@ http无状态，又是基于tcp，所以每次请求都要握手分手，在频�
                 } else if (handshake == SelectionKey.OP_WRITE){
                     socketWrapper.registerWriteInterest();
                 }
-
 ```
 
-处理后的finally会将当前的SocketProcessor加入到缓存中
-
+处理后的finally会将当前的SocketProcessor加入到缓存中:
 ```
                 if (running && !paused && processorCache != null) {
                     processorCache.push(this);
