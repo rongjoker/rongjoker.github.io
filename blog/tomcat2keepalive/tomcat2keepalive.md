@@ -3,7 +3,7 @@
 http无状态，又是基于tcp，所以每次请求都要握手分手，在频繁的请求来说，很是浪费，且没有必要。
 于是就有了大家都知道的keep-alive。关于keep-alive的概念，网上一大堆，我就不重复了，盗一张图，描述一下：
 <p align="center">
-  <img src="https://github.com/rongjoker/rongjoker.github.io/blob/joker_dev/blog/tomcat2keepalive/1.jpg?raw=true" alt="keepAlive">
+  <img src="https://github.com/rongjoker/rongjoker.github.io/blob/joker_dev/blog/tomcat2keepalive/1.png?raw=true" alt="keepAlive">
 </p>
 
 <p>keep-alive主要靠服务器实现,那么问题来了，作为java程序的主流服务容器，tomcat 是如何实现keep-alive的呢？</p>
