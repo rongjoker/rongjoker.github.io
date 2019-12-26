@@ -93,12 +93,11 @@ keep-alive怎么支持？
 我要思考下，但是我很快就能大致想到`TF/IDF`。这都是造轮子的过程中，思考产生的价值。
 <p></p>
 当然，最后，在你不停地完善功能的过程中，会不断的自我怀疑：`我做这个东西有意义吗？spring-boot它不香吗？`，`我为什么这么菜？`，`学这些东西好像没什么用？`。终于有一天，你会想到下面这幅图，你觉得做到1-4
-，很容易，并且是核心，5是最无聊的，但是没有5，这幅画没有任何价值。而spring和自己的轮子的最大差别就是它把4做得很好:)
+，很容易，并且是核心，5是最无聊的，但是没有5，这幅画没有任何价值。而spring和自己的轮子的最大差别就是它把5做得很好:)
 <p align="center">
-  <img src="https://github.com/rongjoker/quarantineJ/blob/joker_dev/core/src/main/document/1.png?raw=false" alt="reactor">
+  <img src="https://github.com/rongjoker/rongjoker.github.io/blob/joker_dev/blog/whywemakecycle/1.jpg?raw=true" alt="horse">
 </p>
 <p></p>
-最后，这个轮子：[https://github.com/rongjoker/quarantineJ](https://github.com/rongjoker/quarantineJ)，真的可以对spring开发者有很大的帮助，虽然它跟spring没啥关系。
 
-
-
+最后，这个轮子: 
+ [https://github.com/rongjoker/quarantineJ](https://github.com/rongjoker/quarantineJ) ，真的可以对spring开发者有很大的帮助，虽然它跟spring没啥关系。
