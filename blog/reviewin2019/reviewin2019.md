@@ -43,6 +43,6 @@
 
 
 <p align="center">
-  <img src="https://github.com/rongjoker/rongjoker.github.io/blob/joker_dev/blog/reviewin2019/1.jpg?raw=true" alt="1">
+  <img src="https://github.com/rongjoker/rongjoker.github.io/blob/master/blog/reviewin2019/1.jpg?raw=true" alt="1">
 </p>
 
