@@ -105,7 +105,7 @@ keep-alive怎么支持？
 当然，最后，在你不停地完善功能的过程中，会不断的自我怀疑：`我做这个东西有意义吗？spring-boot它不香吗？`，`我为什么这么菜？`，`学这些东西好像没什么用？`。终于有一天，你会想到下面这幅图，你觉得做到1-4
 ，很容易，并且是核心，5是最无聊的，但是没有5，这幅画没有任何价值。而spring和自己的轮子的最大差别就是它把5做得很好:)
 <p align="center">
-  <img src="https://github.com/rongjoker/rongjoker.github.io/blob/joker_dev/blog/whywemakecycle/1.jpg?raw=true" alt="horse">
+  <img src="https://s2.ax1x.com/2020/01/04/ldTFts.md.jpg" alt="horse">
 </p>
 <p>造轮子的过程，是思考的过程。你在造过很多轮子后，会更理解一些框架的细节和体贴，甚至，你会得出一个结论：程序就是算法加数据结构，以及操作系统加计算机网络原理。
 我相信netty的作者，恐怕也是在开发中对现存的框架（也许就是他自己的mina【狗头】）有很多怀疑，在充分的思考后，动手写出了netty。</p>
