@@ -19,6 +19,7 @@
 ####  [我们为什么要造轮子](blog/whywemakecycle/whywemakecycle.md){:target="_blank"} 
 ####  [Tomcat 是如何实现keep-alive](blog/tomcat2keepalive/tomcat2keepalive.md){:target="_blank"} 
 ####  [假装在总结：我的2019](blog/reviewin2019/reviewin2019.md){:target="_blank"}
+####  [lambda改善你的代码](blog/travelwithlambda/travelwithlambda.md){:target="_blank"}
 
 
 
