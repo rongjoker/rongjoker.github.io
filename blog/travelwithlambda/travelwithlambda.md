@@ -28,6 +28,15 @@ java8开始的lambda接触到现在差不多三年了，fp用起来真的是越�
 其实上面的语法还是再精简一些，不过为了方面debug和其他同事review，暂时保留目前的形态
 
 
+### Collection.removeIf
+
+```        if (null != entity.getUid()) {
+               list.removeIf(e -> e.getUid().equals(entity.getUid()));
+           }
+```
+用`Collection.removeIf` 去除集合里的特殊数据，比`stream.filter`好用且直观。
+
+
 ### Optional
 
 ```
@@ -57,10 +66,10 @@ java8开始的lambda接触到现在差不多三年了，fp用起来真的是越�
 public class DecorationFeatureRule
 
 ```
-懂的程序员，自然知道这几行代码省了代码量。<br>
+有经验的程序员，自然知道这几行代码省了代码量。<br>
 
 java历来为人诟病的一大缺点是代码过于冗长，曾经有前端同事吐槽：`多次想转java，但是每次看到java那么垃圾那么长的代码，就立刻放弃，我还想留着发际线！`<br>
-`lombok` 和`lambda`真的是降低java代码冗余的两大甜品。从事java的朋友,多多使用这两大利器，加上链式编程，让你的代码质量更上一层楼。
+`lombok` 和`lambda`真的是降低java代码冗余的两大甜品。从事java的朋友,多多使用这两大利器，加上链式编程，配合范型，让你的代码质量更上一层楼。
 
 ### 多说一句
 最近在烟台出差，见识了北方的雪，真的开心。马上周末，准备在一个挺出名的开源项目上加点功能，大家等我的消息！
