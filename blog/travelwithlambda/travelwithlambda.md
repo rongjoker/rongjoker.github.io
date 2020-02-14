@@ -6,7 +6,7 @@ java8开始的lambda接触到现在差不多三年了，fp用起来真的是越�
 ### Collectors.groupingBy
 
 
-```
+``
 //重复数据校验
         Map<DecorationFeatureRule, Long> result =
                 list.stream().collect(
@@ -24,22 +24,23 @@ java8开始的lambda接触到现在差不多三年了，fp用起来真的是越�
         if(CollectionUtils.isNotEmpty(collect))
             throw new IllegalArgumentException("数据重复:"+collect.get(0).toString());
 
-```
+``
 其实上面的语法还是再精简一些，不过为了方面debug和其他同事review，暂时保留目前的形态
 
 
 ### Collection.removeIf
 
-```        if (null != entity.getUid()) {
+``        if (null != entity.getUid()) {
                list.removeIf(e -> e.getUid().equals(entity.getUid()));
            }
-```
+``
+
 用`Collection.removeIf` 去除集合里的特殊数据，比`stream.filter`好用且直观。
 
 
 ### Optional
 
-```
+``
          //格式校验
          list.forEach(e -> {
  
@@ -51,7 +52,7 @@ java8开始的lambda接触到现在差不多三年了，fp用起来真的是越�
              Optional.ofNullable(gdtDimChanlFromCache.get(e.getChnl_cd())).orElseThrow(() -> new IllegalArgumentException("渠道错误" + e.getChnl_cd()));
  
          });
-```
+``
 
 我是对`NPE`无比厌倦和恐怖的人，但是为了程序的健壮，被迫写了太多的`if...else`来处理`NPE`,Optional真的是我的救星，太棒了！
 
