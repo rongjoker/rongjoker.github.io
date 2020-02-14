@@ -40,6 +40,28 @@ java8开始的lambda接触到现在差不多三年了，fp用起来真的是越�
 用`Collection.removeIf` 去除集合里的特殊数据，比`stream.filter`好用且直观。
 
 
+
+### @FunctionalInterface
+
+```$xslt
+    @FunctionalInterface
+    public interface RuleQueryHandler<Q, T> {
+        void buildQuery(LambdaQueryWrapper<T> lambda, Q queryDto);
+    }
+//省略若干行代码
+
+    public QueryWrapper<T> buildQuery(Q queryDto, RuleQueryHandler<Q, T> ruleQueryHandler) {
+        ruleQueryHandler.buildQuery(lambda, queryDto);
+        return queryWrapper;
+
+    }
+
+```
+`@FunctionalInterface` 配合范型，可以解决掉程序员最痛恨的无意义的重复性粘贴复制的工作量，实测在项目中，类似的功能模块，节约掉80%左右的代码量，
+并且由于抽象程度足够好，业务层只需要关注具体业务实现，lower level层的逻辑，完全封装，并且方便统一修改。
+
+
+
 ### Optional
 
 ```
@@ -58,6 +80,8 @@ java8开始的lambda接触到现在差不多三年了，fp用起来真的是越�
 ```
 
 我是对`NPE`无比厌倦和恐怖的人，但是为了程序的健壮，被迫写了太多的`if...else`来处理`NPE`,Optional真的是我的救星，太棒了！
+
+
 
 ### 其他
 
