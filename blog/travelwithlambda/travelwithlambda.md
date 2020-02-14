@@ -6,7 +6,7 @@ java8开始的lambda接触到现在差不多三年了，fp用起来真的是越�
 ### Collectors.groupingBy
 
 
-``
+```
 //重复数据校验
         Map<DecorationFeatureRule, Long> result =
                 list.stream().collect(
@@ -24,23 +24,25 @@ java8开始的lambda接触到现在差不多三年了，fp用起来真的是越�
         if(CollectionUtils.isNotEmpty(collect))
             throw new IllegalArgumentException("数据重复:"+collect.get(0).toString());
 
-``
+```
 其实上面的语法还是再精简一些，不过为了方面debug和其他同事review，暂时保留目前的形态
 
 
 ### Collection.removeIf
 
-``        if (null != entity.getUid()) {
+```
+        if (null != entity.getUid()) {
                list.removeIf(e -> e.getUid().equals(entity.getUid()));
            }
-``
+
+```
 
 用`Collection.removeIf` 去除集合里的特殊数据，比`stream.filter`好用且直观。
 
 
 ### Optional
 
-``
+```
          //格式校验
          list.forEach(e -> {
  
@@ -52,7 +54,8 @@ java8开始的lambda接触到现在差不多三年了，fp用起来真的是越�
              Optional.ofNullable(gdtDimChanlFromCache.get(e.getChnl_cd())).orElseThrow(() -> new IllegalArgumentException("渠道错误" + e.getChnl_cd()));
  
          });
-``
+
+```
 
 我是对`NPE`无比厌倦和恐怖的人，但是为了程序的健壮，被迫写了太多的`if...else`来处理`NPE`,Optional真的是我的救星，太棒了！
 
@@ -73,7 +76,6 @@ java历来为人诟病的一大缺点是代码过于冗长，曾经有前端同�
 `lombok` 和`lambda`真的是降低java代码冗余的两大甜品。从事java的朋友,多多使用这两大利器，加上链式编程，配合范型，让你的代码质量更上一层楼。
 
 ### 多说一句
-最近在烟台出差，见识了北方的雪，真的开心。马上周末，准备在一个挺出名的开源项目上加点功能，大家等我的消息！
+最近在烟台出差，见识了北方的雪，真的开心。马上周末，准备在一个挺出名的开源项目上加点功能。
 
-[![lhqG5D.md.png](https://s2.ax1x.com/2020/01/10/lhqG5D.md.png)](https://github.com/rongjoker/quarantineJ)
 
