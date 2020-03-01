@@ -16,7 +16,8 @@
 
 ### 文字列表
 
-####  [《新世界》：努力的写代码做需求，但是项目还是黄了](blog/reviewofnewworld/reviewofnewworld.md){:target="_blank"}
+####  [2020年的六分之一](blog/1of6in2020/1of6in2020.md){:target="_blank"}
+####  [《新世界》：努力地写代码做需求，项目还是黄了](blog/reviewofnewworld/reviewofnewworld.md){:target="_blank"}
 ####  [lambda改善你的代码](blog/travelwithlambda/travelwithlambda.md){:target="_blank"}
 ####  [假装在总结：我的2019](blog/reviewin2019/reviewin2019.md){:target="_blank"}
 ####  [Tomcat 是如何实现keep-alive](blog/tomcat2keepalive/tomcat2keepalive.md){:target="_blank"} 
