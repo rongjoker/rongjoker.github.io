@@ -12,16 +12,14 @@
 ### 自造的轮子or参与的项目
 
 ####  [基于netty的http-server](https://github.com/rongjoker/quarantineJ){:target="_blank"}
-####  [基于layui+springcloud的企业级微服务框架](https://gitee.com/owenwangwen/open-capacity-platform){:target="_blank"}
 
 ### 文字列表
 
-####  [2020年的六分之一](blog/1of6in2020/1of6in2020.md){:target="_blank"}
+####  [抽象、封装、excel读写、spark及其他](blog/3of12in2020/3of12in2020.md){:target="_blank"}
 ####  [《新世界》：努力地写代码做需求，项目还是黄了](blog/reviewofnewworld/reviewofnewworld.md){:target="_blank"}
 ####  [lambda改善你的代码](blog/travelwithlambda/travelwithlambda.md){:target="_blank"}
 ####  [假装在总结：我的2019](blog/reviewin2019/reviewin2019.md){:target="_blank"}
 ####  [Tomcat 是如何实现keep-alive](blog/tomcat2keepalive/tomcat2keepalive.md){:target="_blank"} 
-####  [程序员的纸篓](blog/programmerswastebasket/programmerswastebasket.md){:target="_blank"} 
 ####  [我们为什么要造轮子](blog/whywemakecycle/whywemakecycle.md){:target="_blank"} 
 
 
