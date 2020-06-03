@@ -1,7 +1,7 @@
-## 2001年最难的一片阅读理解
+## 阅读理解一篇
 
 
-### 原文
+### 原文和自译
 
 ```$xslt
 Specialisation can be seen as a response to the problem of an increasing accumulation of scientific knowledge. 
@@ -47,7 +47,7 @@ In science generally, however, the nineteenth century must be reckoned as the cr
 
 ```
  
- ### 翻译
+ ### 标准翻译
 
 ```$xslt
 专业化可被视为针对科学知识不断膨胀这个问题所做出的反应。通过将学科细化，个人能够继续处理这些不断膨胀的信息并将它们作为深入研究的基础。但是专业化仅是科学领域内一系列影响交流过程的有关现象之一。另一现象是科学活动的日益职业化。
@@ -62,7 +62,7 @@ In science generally, however, the nineteenth century must be reckoned as the cr
 
 ```
 
-###错误
+###摘要
 ```$xslt 
 crucial 关键
 
@@ -73,7 +73,7 @@ on a mathematical or laboratory training 特别是在以数学和实验室训练
 A comparison of British geological publications over the last century and a half  
 对过去一个半世纪的英国地质出版物进行比较
 
- local geological studies 局部的地质研究
+local geological studies 局部的地质研究
 
 The overall result has been to make entrance to professional geological journals harder for amateurs
 , a result that has been reinforced by the widespread introduction of refereeing

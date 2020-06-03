@@ -15,6 +15,7 @@
 
 ### 文字列表
 
+####  [阅读理解一篇](blog/englishReadInChina/englishReadInChina.md){:target="_blank"}
 ####  [抽象、封装、excel读写、spark及其他](blog/3of12in2020/3of12in2020.md){:target="_blank"}
 ####  [《新世界》：努力地写代码做需求，项目还是黄了](blog/reviewofnewworld/reviewofnewworld.md){:target="_blank"}
 ####  [lambda改善你的代码](blog/travelwithlambda/travelwithlambda.md){:target="_blank"}
