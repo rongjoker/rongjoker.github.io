@@ -14,7 +14,7 @@
 ####  [基于netty的http-server](https://github.com/rongjoker/quarantineJ){:target="_blank"}
 
 ### 文字列表
-
+####  [奥古斯都](blog/8of12in2020/8of12in2020.md){:target="_blank"}
 ####  [林冲夜奔](blog/1of2in2020/1of2in2020.md){:target="_blank"}
 ####  [抽象、封装、excel读写、spark及其他](blog/3of12in2020/3of12in2020.md){:target="_blank"}
 ####  [《新世界》：努力地写代码做需求，项目还是黄了](blog/reviewofnewworld/reviewofnewworld.md){:target="_blank"}
