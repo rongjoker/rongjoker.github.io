@@ -1,7 +1,7 @@
 ## lambda改善你的代码
 
 
-java8开始的lambda接触到现在差不多三年了，fp用起来真的是越用越舒服。最近做的一个项目，需要对excel内容做校验，
+&#160; &#160;java8开始的lambda接触到现在差不多三年了，fp用起来真的是越用越舒服。最近做的一个项目，需要对excel内容做校验，
 这次尝试使用`optional`和`Collectors.groupingBy`来做，干掉那些让人看着就想吐的`if...else`
 ### Collectors.groupingBy
 
@@ -85,7 +85,7 @@ java8开始的lambda接触到现在差不多三年了，fp用起来真的是越�
 
 ### 其他
 
-再看`lombok`的代码风格：
+&#160; &#160;再看`lombok`的代码风格：
 ```
 @Data
 @Accessors(chain = true)
@@ -96,7 +96,7 @@ public class DecorationFeatureRule
 ```
 有经验的程序员，自然知道这几行代码省了代码量。<br>
 
-java历来为人诟病的一大缺点是代码过于冗长，曾经有前端同事吐槽：`多次想转java，但是每次看到java那么垃圾那么长的代码，就立刻放弃，我还想留着发际线！`<br>
+&#160; &#160;java历来为人诟病的一大缺点是代码过于冗长，曾经有前端同事吐槽：`多次想转java，但是每次看到java那么垃圾那么长的代码，就立刻放弃，我还想留着发际线！`<br>
 `lombok` 和`lambda`真的是降低java代码冗余的两大甜品。从事java的朋友,多多使用这两大利器，加上链式编程，配合范型，让你的代码质量更上一层楼。
 
 ### 多说一句
