@@ -1,49 +1,34 @@
 ## 阿姆达尔
 
-
-
-
-### 《阿姆达尔》
-&#160; &#160; &#160; &#160;两个不同领域的知识融合，往往会产生奇妙的反应。掌握一门知识，再去学习另外一门知识，往往也有奇特的效果。比如经济学家学王朝兴衰史，会透过英雄人物的登台表演，挖掘帝国的财政危机，发现
-朝代更替的真相。
-<br>
-&#160; &#160; &#160; &#160;2009年有一道题目，假如你的政治理论知识很系统很扎实，那么你很容易做对。
-
-<br>
-原文：
-
-```$xslt
-What is the real relationship between education and economic development? 
-We have to suspect that continuing economic growth promotes the development of education even when governments don't force it. 
-After all, that's how education got started. 
-When our ancestors were hunters and gatherers 10,000 years ago, they didn't have time to wonder much about anything besides finding food. 
-Only when humanity began to get its food in a more productive way was there time for other things.
-```
-<br>
-题目:
-
-```$xslt
- The author quotes the example of our ancestors to show that education emerged __________.
-
-　　[A] when people had enough time
-
-　　[B] prior to better ways of finding food
-
-　　[C] when people on longer went hung
-
-　　[D] as a result of pressure on government
-
-```
-
+### 阿姆达尔
+&#160; &#160; &#160; &#160;Gene Amdahl进行了一个富有洞察力的观察： 提升一个系统的一个部分的性能对整个系统有多大影响。这一观察被称为Amdahl's Law（阿姆达尔定律）：
 <br/>
+`当提升系统的一部分性能时，对整个系统性能的影响取决于:1、这一部分有多重要 2、这一部分性能提升了多少。`
 
 
-&#160; &#160; &#160; &#160;一个很朴素又很需要理解的概念：经济基础决定上层建筑。
-经济基础是指 `由社会一定发展阶段的生产力所决定的生产关系的总和，是构成一定社会的基础` ；上层建筑是`建立在经济基础之上的意识形态以及与其相适应的制度、组织和设施，在阶级社会主要指政治法律制度和设施`。
-原文中，能够让人不再挨饿（`people on longer went hung`）就是经济基础，教育（`education`）就是上层建筑。所以答案选C。然而当年绝大多数考生选了A。选A的同学，读懂了英语，却没有读懂政治。
+### 浮点运算的代价
 
-### 《小布什自传》
+### 希尔伯特
+&#160; &#160; &#160; &#160;希尔伯特曾经手算40重积分，算了三个月。每次有东西不得不算，但又觉得好烦的时候，我总是想想希尔伯特，然后默默找张大白纸，工整仔细地一步步地写下来。
+<br/>
+&#160; &#160; &#160; &#160;真的，碰上你不想算的式子，要么你方法不对；要么就是懒。
+<br/>
+&#160; &#160; &#160; &#160;如果懒，就想想希尔伯特吧。
 
-### 911与2003
+### 老死不相往来
 
-### 老布什的葬礼
+Q:使用Java编写web应用程序需要分成Service接口和ServiceImpl实现方法吗？
+<br/>
+<br/>
+A:一个接口到公司倒闭都不会有第二个实现出现
+
+
+### 积分和微分
+&#160; &#160; &#160; &#160;微积分最让人头疼的地方就是积分，有老梗云：一杯茶一包烟，一道积分算一天。
+可是实际上，微积分的精髓在微分，一旦理解了微分，积分就变得特别容易，凑微分可解定积分，分部积分也可借助微分来降低难度；
+几何和物理上，如果对dx理解深刻，做应用题如喝水般简单；一元求导如果从一元全微分角度入手，可以避免很多问题；多元微分一直是微积分的难点，
+但如果对多元微分和偏导数有一定的认识，从全微分的角度结合一元微分来理解，会简单太多。
+<br/>
+&#160; &#160; &#160; &#160;不禁想到归并排序和快速排序。归并排序的难点在于合并，相当于积分；快速排序的难点在于分治，相当于微分。
+### 花言巧语
+complement 补充、使完美，来自词根ple（满）；compliment 恭维，来自词根pli（曲折）。可见想把一件事情做好，需要不断迭代和填补；而恭维人的花言巧语往往是违心的，委曲自己的本意的，换言之：假话！
