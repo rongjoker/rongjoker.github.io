@@ -1,0 +1,71 @@
+## 浮点运算与阿姆达尔
+
+### 阿姆达尔
+&#160; &#160; &#160; &#160;Gene Amdahl进行了一个富有洞察力的观察： 提升一个系统的一个部分的性能对整个系统有多大影响。这一观察被称为Amdahl's Law（阿姆达尔定律）：
+<br/>
+`当提升系统的一部分性能时，对整个系统性能的影响取决于:1、这一部分有多重要 2、这一部分性能提升了多少。`
+
+
+### 浮点运算的代价
+
+<p align="center">
+  <img src="https://s1.ax1x.com/2020/09/26/0iaDkq.jpg" alt="rock">
+</p>
+
+&#160; &#160; &#160; &#160;1996年6月4日，对于Ariane 5火箭的初次航行来说，这样一个错误产生了灾难性的后果。发射后仅仅37秒，火箭偏离它的飞行路径，解体并爆炸了。火箭上载有价值5亿美元的通信卫星。6亿美元付之一炬。后来的调查显示，控制惯性导航系统的计算机向控制引擎喷嘴的计算机发送了一个无效数据。失事调查报告指出，火箭爆炸是因为：
+&#160; &#160; &#160; &#160;
+```
+during execution of a data conversion from 64-bit floating point to 16-bit signed integer value.
+ The floating point number which was converted had a value greater than what could be represented by a 16-bit signed integer. This resulted in an Operand Error.
+```
+&#160; &#160; &#160; &#160;它没有发送飞行控制信息，而是送出了一个诊断位模式，表明在将一个64位浮点数转换成16位有符号整数时，产生了溢出。 溢出值测量的是火箭的水平速率，这比早先的Ariane 4火箭所能达到的高出了5倍。在设计Ariane 4火箭的软件时，他们小心地分析了数字值，并且确定水平速率绝不会超出一个16位的数。不幸的是，他们在Ariane 5火箭的系统中简单地重新使用了这一部分，而没有检查它所基于的假设。
+
+&#160; &#160; &#160; &#160;上述程序是用Ada写成的。Ada代码如下：
+
+```
+begin
+sensor_get(vertical_veloc_sensor);
+sensor_get(horizontal_veloc_sensor);
+vertical_veloc_bias := integer(vertical_veloc_sensor);
+horizontal_veloc_bias := integer(horizontal_veloc_sensor);
+...
+exception
+when numeric_error => calculate_vertical_veloc();
+when others => use_irs1();
+end;
+```
+
+### 希尔伯特
+希尔伯特曾经手算40重积分，算了三个月。每次有东西不得不算，但又觉得好烦的时候，我总是想想希尔伯特，然后默默找张大白纸，工整仔细地一步步地写下来。
+<br/>
+真的，碰上你不想算的式子，要么你方法不对；要么就是懒。
+<br/>
+如果懒，就想想希尔伯特吧。
+
+### 老死不相往来
+
+<p align="center">
+  <img src="https://s1.ax1x.com/2020/09/26/0ia07n.jpg" alt="java">
+</p>
+
+Q:使用Java编写web应用程序需要分成Service接口和ServiceImpl实现方法吗？
+<br/>
+
+A:一个接口到公司倒闭都不会有第二个实现出现
+<br/>
+
+### 积分和微分
+<p align="center">
+  <img src="https://s1.ax1x.com/2020/09/26/0iart0.png" alt="calculus">
+</p>
+&#160; &#160; &#160; &#160;微积分最让人头疼的地方就是积分，有老梗云：一杯茶一包烟，一道积分算一天。
+可是实际上，微积分的精髓在微分，一旦理解了微分，积分就变得特别容易，凑微分可解定积分，分部积分也可借助微分来降低难度；
+几何和物理上，如果对dx理解深刻，做应用题如喝水般简单；一元求导如果从一元全微分角度入手，可以避免很多问题；多元微分一直是微积分的难点，
+但如果对多元微分和偏导数有一定的认识，从全微分的角度结合一元微分来理解，会简单太多。
+<br/>
+&#160; &#160; &#160; &#160;不禁想到归并排序和快速排序。归并排序的难点在于合并，相当于积分；快速排序的难点在于分治，相当于微分。
+
+
+
+### 花言巧语
+complement 补充、使完美，来自词根ple（满）；compliment 恭维，来自词根pli（曲折）。可见想把一件事情做好，需要不断迭代和填补；而恭维人的花言巧语往往是违心的，委曲自己的本意的，换言之：假话！
