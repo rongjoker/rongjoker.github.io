@@ -14,10 +14,15 @@
 
 &#160; &#160; &#160; &#160;1996年6月4日，对于Ariane 5火箭的初次航行来说，这样一个错误产生了灾难性的后果。发射后仅仅37秒，火箭偏离它的飞行路径，解体并爆炸了。火箭上载有价值5亿美元的通信卫星。6亿美元付之一炬。后来的调查显示，控制惯性导航系统的计算机向控制引擎喷嘴的计算机发送了一个无效数据。失事调查报告指出，火箭爆炸是因为：
 &#160; &#160; &#160; &#160;
+
 ```
-during execution of a data conversion from 64-bit floating point to 16-bit signed integer value.
- The floating point number which was converted had a value greater than what could be represented by a 16-bit signed integer. This resulted in an Operand Error.
+during execution of a data conversion from 64-bit floating point to 16-bit 
+signed integer value.
+The floating point number which was converted had a value greater
+than what could be represented by a 16-bit signed integer. 
+This resulted in an Operand Error.
 ```
+
 &#160; &#160; &#160; &#160;它没有发送飞行控制信息，而是送出了一个诊断位模式，表明在将一个64位浮点数转换成16位有符号整数时，产生了溢出。 溢出值测量的是火箭的水平速率，这比早先的Ariane 4火箭所能达到的高出了5倍。在设计Ariane 4火箭的软件时，他们小心地分析了数字值，并且确定水平速率绝不会超出一个16位的数。不幸的是，他们在Ariane 5火箭的系统中简单地重新使用了这一部分，而没有检查它所基于的假设。
 
 &#160; &#160; &#160; &#160;上述程序是用Ada写成的。Ada代码如下：
