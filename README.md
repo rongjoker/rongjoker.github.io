@@ -20,7 +20,6 @@
 ####  [抽象、封装、excel读写、spark及其他](blog/3of12in2020/3of12in2020.md){:target="_blank"}
 ####  [电视剧【新世界】:努力地写代码做需求，项目还是黄了](blog/reviewofnewworld/reviewofnewworld.md){:target="_blank"}
 ####  [lambda改善你的代码](blog/travelwithlambda/travelwithlambda.md){:target="_blank"}
-####  [假装在总结：我的2019](blog/reviewin2019/reviewin2019.md){:target="_blank"}
 ####  [Tomcat 是如何实现keep-alive](blog/tomcat2keepalive/tomcat2keepalive.md){:target="_blank"} 
 ####  [我们为什么要造轮子](blog/whywemakecycle/whywemakecycle.md){:target="_blank"} 
 
