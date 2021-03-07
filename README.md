@@ -14,14 +14,16 @@
 ####  [基于netty的http-server](https://github.com/rongjoker/quarantineJ){:target="_blank"}
 
 ### 文字列表
+####  [读书笔记:<指数基金投资指南>](blog/2021/index_fund.md){:target="_blank"}
+####  [魔方与编程](blog/2021/cube.md){:target="_blank"}
 ####  [生活直觉和程序直觉](blog/2021/intuition.md){:target="_blank"}
 ####  [浮点运算与阿姆达尔](blog/nine/nine.md){:target="_blank"}
 ####  [奥古斯都](blog/8of12in2020/8of12in2020.md){:target="_blank"}
 ####  [抽象、封装、excel读写、spark及其他](blog/3of12in2020/3of12in2020.md){:target="_blank"}
 ####  [电视剧【新世界】:努力地写代码做需求，项目还是黄了](blog/reviewofnewworld/reviewofnewworld.md){:target="_blank"}
 ####  [lambda改善你的代码](blog/travelwithlambda/travelwithlambda.md){:target="_blank"}
-####  [Tomcat 是如何实现keep-alive](blog/tomcat2keepalive/tomcat2keepalive.md){:target="_blank"} 
-####  [我们为什么要造轮子](blog/whywemakecycle/whywemakecycle.md){:target="_blank"} 
+####  [Tomcat 是如何实现keep-alive](blog/tomcat2keepalive/tomcat2keepalive.md){:target="_blank"}
+####  [我们为什么要造轮子](blog/whywemakecycle/whywemakecycle.md){:target="_blank"}
 
 
 
