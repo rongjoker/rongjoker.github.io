@@ -15,8 +15,8 @@
 
 ### 文字列表
 
-####  [读书笔记:<指数基金投资指南>](blog/2021/index_fund.md){:target="_blank"}
 ####  [魔方与编程](blog/2021/cube.md){:target="_blank"}
+####  [读书笔记:<指数基金投资指南>](blog/2021/index_fund.md){:target="_blank"}
 ####  [生活直觉和程序直觉](blog/2021/intuition.md){:target="_blank"}
 ####  [浮点运算与阿姆达尔](blog/nine/nine.md){:target="_blank"}
 ####  [奥古斯都](blog/8of12in2020/8of12in2020.md){:target="_blank"}
