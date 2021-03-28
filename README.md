@@ -14,6 +14,7 @@
 ####  [基于netty的http-server](https://github.com/rongjoker/quarantineJ){:target="_blank"}
 
 ### 文字列表
+####  [刷题笔记(1)](blog/nine/nine.md){:target="_blank"}
 ####  [浮点运算与阿姆达尔](blog/nine/nine.md){:target="_blank"}
 ####  [奥古斯都](blog/8of12in2020/8of12in2020.md){:target="_blank"}
 ####  [抽象、封装、excel读写、spark及其他](blog/3of12in2020/3of12in2020.md){:target="_blank"}
