@@ -30,5 +30,32 @@
 &#160; &#160; &#160; &#160; [377. 组合总和 Ⅳ](https://leetcode-cn.com/problems/combination-sum-iv/) , [279. 完全平方数](https://leetcode-cn.com/problems/perfect-squares/) , [139. 单词拆分](https://leetcode-cn.com/problems/word-break/) ,也是同类的题目。
 <br/>
 &#160; &#160; &#160; &#160; 其他如 [718. 最长重复子数组](https://leetcode-cn.com/problems/maximum-length-of-repeated-subarray/) , [416. 分割等和子集](https://leetcode-cn.com/problems/partition-equal-subset-sum/) , [1049. 最后一块石头的重量II](https://leetcode-cn.com/problems/last-stone-weight-ii/) ,则是01背包的变型，只要能分辨出什么是资源，什么是背包就可以快速解决。
+<br/>
+&#160; &#160; &#160; &#160;  [1155. 掷骰子的N种方法](https://leetcode-cn.com/problems/number-of-dice-rolls-with-target-sum/) 则是分组背包的变型。这个题目几乎达到了背包类型题目的天花板。核心代码如下:
+```
+        for (int i = 1; i < d; i++) {//从第一个骰子依次累加
+            dp_current =new int[target+1];//每一轮重置
+
+            for (int j = 0; j <= target; j++) {//当目标是0\1\2\3-target等情况下最大值
+                for (int k = 1; k <= f; k++) {//多种数字轮流测试
+                    if(j-k>=0){
+                        dp_current[j]  += dp_previous[j-k];//会有多种情况满足反复累加，比如4；有1+3；2+2；3+1；相当于previous[3]+previous[2]+previous[1]累加
+                        if(dp_current[j]>mod)dp_current[j]%=mod;//相加就可能过大，所以在此取余
+                    }
+                }
+
+            }
+
+            dp_previous = dp_current;
+
+        }
+```
+<br/>
+
 
 &#160; &#160; &#160; &#160; 背包问题本身虽然简单，但是却透露着数学思维：用看似愚笨的遍历方法将指数级复杂度的难题降低到多项式复杂度。这有点像魔方，如果让计算机来模拟还原魔方，需要计算亿亿亿次级别的次数才能遍历出所有的组合情况，最强大的计算机也要花费非常多的时间才能运算完成；而熟练的(三阶)魔方职业竞速选手，往往可以达到sub10(10秒以下)。职业选手当然是通过背公式(还原步数可以降低到几十步)和反复练习来提高，而如果让计算机掌握这些公式，则可以在纳秒间还原魔方。退而来说，即使不掌握公式，仅仅了解了魔方的结构（中心块、菱块、角块）和6轴颜色的分布，计算机也可以仅仅需要几万次的尝试，就可以遍历完所有的组合，花费时间也在微秒级别。魔方的例子完美的展示了在了解数据本身结构后，即使利用最笨的穷举遍历，也可以很高效地解决问题。
+
+
+### 最长系列
+&#160; &#160; &#160; &#160; leetcode收纳了几乎所有的最长系列经典题目，如最长公共子序列、最长前缀和、最长回文子串、最长回文子序列、最长上升子序列。这些题目又可以细分为两块：子序列和子串。子串要求连续，有时通过双指针或者中心发散就可以解决，子序列则必须采用dp或者必须部分借助dp思想才能解决。
+&#160; &#160; &#160; &#160;
