@@ -16,6 +16,7 @@
 ### 文字列表
 
 
+####  [各种问题一共十个](blog/2021/questions.md){:target="_blank"}
 ####  [算法笔记(一):算法与魔方](blog/2021/algorithem01.md){:target="_blank"}
 ####  [浮点运算与阿姆达尔](blog/nine/nine.md){:target="_blank"}
 ####  [奥古斯都](blog/8of12in2020/8of12in2020.md){:target="_blank"}
