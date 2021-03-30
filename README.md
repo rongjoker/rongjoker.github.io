@@ -16,7 +16,7 @@
 ### 文字列表
 
 
-####  [算法笔记(一):伊索寓言](blog/2021/algorithem01.md){:target="_blank"}
+####  [算法笔记(一):算法与魔方](blog/2021/algorithem01.md){:target="_blank"}
 ####  [浮点运算与阿姆达尔](blog/nine/nine.md){:target="_blank"}
 ####  [奥古斯都](blog/8of12in2020/8of12in2020.md){:target="_blank"}
 ####  [抽象、封装、excel读写、spark及其他](blog/3of12in2020/3of12in2020.md){:target="_blank"}
