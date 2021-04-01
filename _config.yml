@@ -1,7 +1,7 @@
 
 # SEO settings
 title: "Magic of Java"
-# title2: "Link" # default: ""
+ title2: "Magic of Thought" # default: ""
 description: "Blog Of joker"
 keywords: "joker,rongjoker"
 url: https://rongjoker.github.io/ # site url
@@ -37,6 +37,8 @@ author:
   email    : magic_of_java@foxmail.com
   url      : https://rongjoker.github.io/
   github   : http://github.com/rongjoker
+  quarantineJ   : https://github.com/rongjoker/quarantineJ
+  ephemeralJ   : https://github.com/rongjoker/ephemeralJ
 
 
 
