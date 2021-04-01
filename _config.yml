@@ -1,1 +1,60 @@
-theme: jekyll-theme-cayman
+
+# SEO settings
+title: "Number "
+title2: "Link" # default: ""
+description: "Blog Of joker"
+keywords: "joker,rongjoker"
+url: https://rongjoker.github.io/ # site url
+#baseurl: "//" # apply repo name if use it under gh-pages branch
+baseurl: null # apply null if repo name is something like username.github.io
+
+google_analytics: UA-40947781-3
+repo: https://github.com/rongjoker/rongjoker.github.io
+disqus_shortname: "rongjoker"
+uyan_id: "2141342"
+twitter_username: "rongjoker"
+comments: true 
+
+# Build settings
+permalink   : /:year/:title/
+markdown    : kramdown
+highlighter : rouge
+
+source: ./
+destination: ./_site
+
+# Sass configuration
+sass:
+  sass_dir: assets/scss
+  style: compressed # expanded
+
+# Author settings
+author:
+  name     : "Line"
+  job      : "DBA Developer SA SAr"
+  bio      : ""
+  thumb    : /images/author.png
+  email    : line.xj.lin@gmail.com
+  url      : http://linexjlin.github.io
+  github   : http://github.com/rongjoker
+  twitter  : http://twitter.com/linexjlin
+  facebook : https://www.facebook.com/linexjlin
+  linkedin : http://linkedin.com/in/linexjlin
+
+# social settings
+og_locale: "en_US"
+twitter_card: "summary_large_image"
+twitter_site: "@linexjlin"
+
+gems:
+  - bourbon
+  - jekyll-paginate
+
+# navbar pages
+navbar:
+  - slug : about
+    title: About
+  - slug : blog
+    title: Blog
+
+exclude: ["gulp", "node_modules", "bower", "bower_components", "config.rb", "src", "Gemfile", "Gemfile.lock", ".rvmrc", ".rbenv-version", "package.json", "gulpfile.js", "README.md", "Rakefile", "changelog.md"]
