@@ -17,7 +17,7 @@ comments: true
 
 # Build settings
 permalink   : /:year/:title/
-markdown    : CommonMark
+markdown    : GFM
 highlighter : rouge
 
 source: ./
