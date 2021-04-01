@@ -4,13 +4,8 @@ title: Tomcat 是如何实现keep-alive
 ---
 
 
-### Tomcat 是如何实现keep-alive
-
 http无状态，又是基于tcp，所以每次请求都要握手分手，在频繁的请求来说，很是浪费，且没有必要。于是就有了大家都知道的keep-alive。关于keep-alive的概念，网上一大堆，我就不重复了，盗一张图，描述一下：
-<p align="center">
-  <img src="https://s2.ax1x.com/2020/01/04/ldTkhn.md.png" alt="keepAlive">
-</p>
-
+![](https://s2.ax1x.com/2020/01/04/ldTkhn.md.png) <br>
 <p>keep-alive主要靠服务器实现,那么问题来了，作为java程序的主流服务容器，tomcat 是如何实现keep-alive的呢？</p>
 
 <p>先看tomcat,以主流的nio实现为例</p>
