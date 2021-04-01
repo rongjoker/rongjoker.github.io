@@ -4,17 +4,14 @@ title: About
 permalink: /about/
 ---
 
-I am Line Xiongjie Lin (林雄杰). A DBA, Developer, vimer, SA, SAr.
+永远相信理性的力量：真理是不言而喻了，真理是经得起推敲的，真理是可以和它的提出者解绑的.
 
 # Contact me with
 
-Mobile: Kzg2MTc3MTc4NTQ2OTM= (base64)
 
-Email: line.xj.lin(gmail)
+Email: magic_of_java@foxmail.com
 
-Telegram: [linxj](https://telegram.me/linxj)
+Wechat: lies_joker 
 
-Wechat: red_land 
-
-![red_land](https://up.linkown.com/img/red_land.jpg)
+![red_land](https://s2.ax1x.com/2020/01/04/ldTkhn.md.png)
 {% include uyan.html %}
