@@ -81,7 +81,43 @@ easy难度，可以理解的过程，就是个hard的过程。<br>
 ```
 
 ### 简版编辑距离
-编辑距离代码少，理解了很直观，可是不理解的话，很难做。 [583. 两个字符串的删除操作](https://leetcode-cn.com/problems/delete-operation-for-two-strings/) 是编辑距离的简化版本，难度为meduim，可以尝试，加深理解。
+编辑距离代码少，理解了很直观，可是不理解的话，很难做。 [583. 两个字符串的删除操作](https://leetcode-cn.com/problems/delete-operation-for-two-strings/) 是编辑距离的简化版本，难度为meduim，可以尝试，dp的代码几乎和72题完全一样加深理解:
+
+```
+public int minDistance(String word1, String word2) {
+
+        int max1 = word1.length(),max2 = word2.length();
+        if(max1==0) return max2;
+        if(max2==0) return max1;
+        int[][] dp = new int[max1+1][max2+1];
+
+        //注意这里要进1制，别忘了等号
+        for (int i = 0; i <= max2; i++) {
+            dp[0][i] = i;
+        }
+
+        //注意这里要进1制，别忘了等号
+        for (int i = 0; i <= max1; i++) {
+            dp[i][0] = i;
+        }
+
+        for (int i = 0; i < max1; i++) {
+            for (int j = 0; j < max2; j++) {
+                if(word1.charAt(i) == word2.charAt(j))
+                    dp[i+1][j+1] = dp[i][j];
+                else{
+                    dp[i+1][j+1] = Math.min(Math.min(dp[i+1][j],dp[i][j+1])+1,dp[i][j]+2);//同时删2个
+                }
+
+            }
+        }
+
+        return dp[max1][max2];
+
+
+    }
+
+```
 
 
 
