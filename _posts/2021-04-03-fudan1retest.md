@@ -4,16 +4,10 @@ title: 短的复试
 ---
 
 
-### 1.自我介绍
-我于2010年毕业于河南理工大学，专业是计算机应用。毕业后从事软件开发工作差不多十年。开发过的软件服务涵盖电子商务、移动应用搜索平台、新零售智慧销售管理等领域。目前在一家做互联网转型的传统企业的技术部门做项目服务端负责人。<br>
-```
-Hi, professors,Good morning.It is my great honor to sit here today for this interview.My name is zhangshipeng. 
-I graduated from Henan Polytechnic University in 2010.
-then I have been an engineer in the area of software development for almost 10 years.
-during this decade, I have developed many software projects, such as electronic-commerce, search websites, and applications for smart sales. 
-Now I work in a traditional and Internet mixed company, half of my work is development, half is management.
+### 开门见山
 
-```
+复试准备
+
 ### 2.mysql索引原理和失效的场景以及mvcc以及常用优化
 mysql-innodb索引底层采用b+树的数据结构，并且只在叶子节点下保存具体数据，这种设计可以让b+树每个节点都可以尽可能多的存储索引数据，结合缓存优化，可以尽可能少地访问硬盘，并能保证访问每条数据的速度大致相同。mysql的索引遵循最左匹配原则，如果查询条件不是按照最左顺序匹配，联合索引会失效。此外，前导模糊查询(例如 like %李)、负向条件索引(建议用in。负向条件有：!=、<>、not in、not exists、not like 等)、索引列上进行运算或使用函数等情况都会让索引失效。<br>
 
