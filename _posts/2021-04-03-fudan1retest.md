@@ -1,69 +1,40 @@
 ---
 layout: post
-title: 短的复试
+title: 读书在复旦(一):短的复试
 ---
 
 
-### 开门见山
+### 复试前的准备
+由于初试成绩比较不错，362分，虽然数学略翻车(100多点)，但英语排名第二，专业课第九，总分也在十几名；在进入复试的84个人里算是很靠前的一批，加上自己是科班出身，从事开发多年，所以对复试比较轻视，甚至有现场虐老师的天真想法。毕竟根据我的调查，有几位导师，甚至年龄比我还小。<br>
+初试结束后，到2月低，玩了400小时的塞尔达+动森，刷了100多道leetcode题目，看了几本一直想看的书。除此之外，似乎就没有做更多的事情了。初试成绩出来了，带着失望(数学)和喜悦(总成绩)兴高采烈地过了一段时间，水水群聊，等完院线等复试名单，等完复试名单等模拟复试。直到模拟复试过后，才开始专心准备。主要是英语口语和一些技术问题。在<各种问题一共十个>一文有记录。整个三月期间，除了工作外，还是以学算法为主，算法这个玩意吧，跟做数学题的感觉一样一样的，回馈路径很短，容易上瘾。
 
-复试准备
-
-### 2.mysql索引原理和失效的场景以及mvcc以及常用优化
-mysql-innodb索引底层采用b+树的数据结构，并且只在叶子节点下保存具体数据，这种设计可以让b+树每个节点都可以尽可能多的存储索引数据，结合缓存优化，可以尽可能少地访问硬盘，并能保证访问每条数据的速度大致相同。mysql的索引遵循最左匹配原则，如果查询条件不是按照最左顺序匹配，联合索引会失效。此外，前导模糊查询(例如 like %李)、负向条件索引(建议用in。负向条件有：!=、<>、not in、not exists、not like 等)、索引列上进行运算或使用函数等情况都会让索引失效。<br>
-
-
-### 3.1 为何选择读研
-我每天的工作包含各种软件开发和项目管理的内容，我感觉很充实，每天可以做很多事情；另一方面，我又觉得自己能做的很少，如果想把一件事做好，就需要投入大量的精力和专业技能。读研是个很棒的提升自己专业水平以及保持学习的机会。
+### 自我介绍
+清明节的第一天，4月3号早晨9点半，排在第二组(记住这个组)的第二位的我，开始复试。视频一开启，我就懵了。我一直以为线上复试是多个老师一人一个机位，实际是多个老师围在一个圆桌，五男一女，中间的较为年长。第二机位(手机)扫描房间一圈后，复试开始。首先是中文自我介绍，因为提前有准备，简短的回答了。
 <br>
 
-My daily work includes all kinds of software development and project management. I feel pretty energetic everyday,like i can do a lot of things. but in the meantime, I feel that I know nothing, I can do nothing. You know when you want to do well in an area,you need a lot of time and professional skills. postgraduate study is a great opportunity to improve my professional capability and keep a good habit of learning.
+
+### 介绍下最有成就感的项目
+听到这个问题，我大脑高速运转，迅速回答是之前做的移动应用搜索平台(xy苹果助手)，我的想法是这个项目用到了tf/idf算法以及数据分析和推荐，与入学后的ai和大数据比较靠近。这个想法瞬间断送了之前准备的大量目前工作相关的成果，只能依靠临时的应变。听到推荐功能后，老师立刻问用到什么模型。答曰没有用到算法而是基于elk进行数据聚合和统一，分析出推荐的数据。<br>
+另一个老师问倒排索引的原因以及相关数据结构，我大致描述了倒排索引的原理并试图让老师提问我准备好的tf/idf相关问题，老师不买我的套路直接跳过，问如果现在再来做这个项目，有什么优化的想法。我从用户行为跟踪和分析的角度讲了些看法，都是大路货。老师不置可否。
 
 
-
-
-### 3.2 读研期间的规划
-希望在读研期间，好好利用这几年的时间、资源，以及良好的师生学习氛围，在大数据开发领域、数据分析、乃至于工程项目管理等等方面得到提升。
+### 对读研做了什么准备
+我的回答：之前做了线代和概率论方面的学习和准备，然后大半年都在备考，最近主要是学习算法。老师明显不太满意，问读过什么论文。我做密码机相关的工作时候读过北邮的非对称加密相关的论文，不过平时工作以应用开发为主所以学术方面比较欠缺。<br>
+老师说其实读这个研对学术要求还是有的。我的回答是我现在的工作，团队比较国际化，虽然不需要直接的英语沟通，但是对文档规范化、英语文档的阅读都有要求，所以我有这方面的的阅读文献的习惯和积累。<br>
+老师又说加班多吗，读研需要较多的科研时间。我回答平时偶尔加班周末不加班，时间上没问题的。<br>
+老师接着问目前的项目，我试图描述下项目的业务场景和技术架构，说到一半被打断。然后一个问题，忘了具体是什么了，我回答其实我一直做应用开发，在算法和ai方面比较短板，这也是我报考研究生的一个关键契机。
+这几个问题其实是最关键的，而我回答的只能算一般。
 <br>
 
-Based on the experience of my work,I realize the importance of professional knowledge and professional education.
-Fudan University is a great school with excellent learning atmosphere(at莫斯非额) and professional resources. during the postgraduate study,
-I think I can finish the courses and degree paper, in the meantime I want to improve my capability of data analysis , artificial intelligence and  engineering management.
+### 英语部分
+回答完上一个问题后，突然最右侧的女老师开始问英语问题。卒不及防，加上声音很小，我完全没听到，后来听其他组内同学反馈也是如此。只能请求再说一遍。依次有几个问题，回答的都比较一般。有一个问题我直接没听懂，就回答根据我多年的工作经验，直到专业知识和专业教育非常重要，希望在读研期间能提升自己在数据分析、人工智能、工程管理方面的能力。然后老师问了常用的语言，我的回答是java、js、python、golang，并说主要用java，其他较少使用。然后几个问题印象不深刻。
+<br>之后老师放弃问专业问题，改为聊天。问了周末爱好，我的回答是在leetcode刷题（大雾）、阅读、玩主机游戏。老师接着问喜欢看电影吗，我说经常看。老师问最喜欢的电影是什么，我脱口而出run forrest gump，forrest gump，the name is Gump。<br>
+这部分全部用英语回答，由于和准备的问题相差较远，所以基本都是临时应对。<br>
+至此，复试结束，用时约25分钟。
 
 
-### 4.最大的成就
-加入目前的团队时，公司面临互联网转型，项目还在草创阶段。带领服务端同事们将销售管理自动化项目完成从无到有的搭建、基于spring-cloud的微服务化、基于aws的devops进行重构升级，一直到目前稳定迭代并衍生出智慧选店的新项目。
-<br>
+### 尾巴
+第二天（4月4日）一大早，得知二组的一个女同学(本科武大)复试不及格被刷了。群里震动。然后大家开始躁动起来。今年复旦非全划线320，涨了20分，已经刷掉了很多分数不错的同学，要知道同济和华师大的计算机专业只要国家线就收。而且复旦今年专业课压分，多数二战考生今年专业课比去年少了20-30分，甚至很多人总分300+的专业课只有60分。复旦计算机过线84人，计划招生80人。本以为会全部录取(这也是我复试准备不充分的原因)，没想到还会刷人。持续闹腾了一天，再无人反应收到复试不及格的消息。<br>
+第三天（4月5日）中午收到复试通过的消息。21考研收尾。
 
-When I join the current team, the company is facing Internet transformation, and the project just started.I Led the service development team to complish the construction  from zero to one,and then then make it as  micro service based on spring cloud. After a period of time We restructure it with Devops model based on AWS.
-
-
-### 5.遇到的最大的问题
-项目基于spring-cloud实现云服务后，公司与aws合作，所有的服务迁移到aws，并全部依赖aws的各项服务。取消了微服务注册中心，改为依赖api-gateway网关进行熔断和降级，用sqs替换rabbit-mq，文件管理服务器迁移到aws s3，项目部署采用devops的流水线，等等。由于aws的资源相关资料较少，官方文档的可读性一般，也不可能遇到问题就依赖aws的技术支持，所以等于是一个坑一个坑的踩。
-<br>
-
-Talking about the difficulties I have met,
-there are few resources about AWS on the internet, the official documents are very crude, and It is also impossible to ask  supports from AWS every time we have troubles.
-So I have to solve problems by myself with studying the cases one by one.
-
-
-### 6.读过什么论文
- 做密码机工作的时候读过北邮的一篇关于加密算法的文章。非对称加密。<br>
- 常见的对称加密算法有DES、3DES、AES、Blowfish、IDEA、RC5、RC6.<br>
- 要想使用非对称加密算法，首先要有一对key，一个被称为private key私钥，一个成为public key公钥，然后可以把你的public key分发给想给你传密文的用户，然后用户使用该public key加密过得密文，只有使用你的private key才能解密，也就是说，只要你自己保存好你的private key，就能确保，别人想给你发的密文不被破解，所以你不用担心别人的密钥被盗<br>
- 常见的非对称加密算法有RSA、DSA.<br>
- 由于进行的都是大数计算，使得 RSA 最快的情况也比 DES 慢上好几倍，无论是软件还是硬件实现。速度一直是 RSA 的缺陷。一般来说只用于少量数据加密。RSA 的速度是对应同样安全级别的对称密码算法的1/1000左右。
- 比起 DES 和其它对称算法来说，RSA 要慢得多。实际上一般使用一种对称算法来加密信息，然后用 RSA 来加密比较短的公钥，然后将用 RSA 加密的公钥和用对称算法加密的消息发送给接收方。
- 这样一来对随机数的要求就更高了，尤其对产生对称密码的要求非常高，否则的话可以越过 RSA 来直接攻击对称密码。
-
- 
-### 7.现在的工作内容
-负责新零售智慧销售平台的服务端开发，日常工作包括与产品经历沟通需求、整理业务员反馈信息，项目迭代管理，人员任务分配，项目的技术选型和框架搭建、核心代码的编写，开发人员的代码review。
-### 8.项目介绍
-目前做的项目是新零售智慧销售管理。包括业务员业绩激励管理、门店信息收集、区域门店画像、业务员路线规划、月度预算智慧分配。本质是收集门店基本信息和门店销售信息以及区域的各种基础信息，分析出业务的各种安排和规划，提高业务员业务效率和业绩。
-### 9.jvm
-操作系统层面，进程运行有5个状态：运行态、就绪态、阻塞态、创建态、结束态。jvm的线程调用的是内核线程。
-### 10.spring && es&&devops
-spring的核心是ioc和aop以及实现了servlet协议和http路由管理。ioc是将所有的bean进行统一创建和分配管理，不需要开发中编写大量的创建、初始化和配置，专心于具体的功能开发即可，从面向对象的角度来说，ioc提高了项目的抽象程度，隐藏依赖的bean的实现细节，方便封装。aop为面向切面编程，方便在已经开发好的代码里追加功能，比如日志记录、数据校验等等。<br>
-es 包含检索和排序两块核心，检索基于倒排索引；排序采用tf * idf算法，词频（term frequency，TF）指的是某一个给定的词语在该文件中出现的频率;某一特定词语的IDF，可以由总文件数目除以包含该词语之文件的数目.这个算法的核心要义就是一个词在一个文档里出现的频率很高，而在所有文档里出现的频率较低，那么检索这个词的时候，这个文档排名就会靠前。<br>
-devops本质是提高了增量开发的可行性，在以迭代推进的敏捷开发模式中尤其有效。
 
