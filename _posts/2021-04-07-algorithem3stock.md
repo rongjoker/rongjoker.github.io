@@ -4,7 +4,7 @@ title: 算法笔记(三):leetcode教你炒股票
 ---
 
 ### 股票风云
-leetcode热衷于通过探讨股票的买入和卖出时机，来教我们炒股，一共有6个相关题目(算上剑指offer一共7个),全部都可以用dp解决。可见理财本质就是规划。<br>
+leetcode热衷于通过探讨股票的买入和卖出时机，来教我们炒股，一共有6个相关题目(算上剑指offer一共7个)以及一个股票价格跨度计算器,几乎全部都可以用dp解决。可见理财本质就是规划。<br>
 
 
 
@@ -199,6 +199,38 @@ leetcode热衷于通过探讨股票的买入和卖出时机，来教我们炒股
 ```
 
 <br>
+
+### 股票跨度计算器
+[901. 股票价格跨度](https://leetcode-cn.com/problems/online-stock-span/) 是股票买卖时机的第七个题目，也算是番外篇3。它收集某些股票的每日报价，并返回该股票当日价格的跨度。可以理解为股民们喜欢的K线的<br>
+
+```
+List<int[]> list;
+
+    public StockSpanner() {
+        list = new ArrayList<>();
+
+    }
+    
+    public int next(int price) {
+
+        if(list.size()==0) {
+            list.add(new int[]{price,1});
+            return 1;
+        }else{
+            int index = list.size()-1,score=1;
+            while(index>-1 && list.get(index)[0]<=price){
+                score+= list.get(index)[1];
+                index-= list.get(index)[1];
+            }
+            list.add(new int[]{price,score});
+            return score;
+        }
+
+    }
+```
+
+
+
 至此，leetcode已经教完我们炒股，是时候到股市里为城市绿化做贡献了。<br>
 
 > 相关资料:  [股票问题系列通解](https://leetcode-cn.com/circle/article/qiAgHn/) 
