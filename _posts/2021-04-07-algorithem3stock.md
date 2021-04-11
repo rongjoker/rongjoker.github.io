@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 算法笔记(三):leetcode教你炒股票
+title: 算法笔记(三):leetcode教你炒股
 ---
 
 ### 股票风云
