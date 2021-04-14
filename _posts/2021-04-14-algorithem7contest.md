@@ -75,7 +75,7 @@ ACMer往往看不上leetcode的竞赛。题目文字描述简短且是中文(狗
 ```
 
 ### 双周赛49
-[1814. 统计一个数组中好对子的数目](https://leetcode-cn.com/contest/biweekly-contest-49/problems/count-nice-pairs-in-an-array/) ，这个题目属于数学题的范畴。比较巧妙的利用加减法交换律：`nums[i] + rev(nums[j]) == nums[j] + rev(nums[i])nums[i]+rev(nums[j])==nums[j]+rev(nums[i])`，推算出`nums[i] - rev(nums[i]) == nums[j] - rev(nums[j])nums[i]−rev(nums[i])==nums[j]−rev(nums[j])`。也就是统计`nums[i] - rev(nums[i])`各值的出现次数，进行`k*(k-1)/2`求组合即可。放在数学上其实是很简单的题目，不过放在算法题目里就很费解。还好做题时候可以百度组合数公式。
+[1814. 统计一个数组中好对子的数目](https://leetcode-cn.com/contest/biweekly-contest-49/problems/count-nice-pairs-in-an-array/) ，这个题目属于数学题的范畴。比较巧妙的利用加减法交换律：`nums[i] + rev(nums[j]) == nums[j] + rev(nums[i])`，推算出`nums[i] - rev(nums[i]) == nums[j] - rev(nums[j])`。也就是统计`nums[i] - rev(nums[i])`各值的出现次数，进行`k*(k-1)/2`求组合即可。放在数学上其实是很简单的题目，不过放在算法题目里就很费解。还好做题时候可以百度组合数公式。
 
 
 
