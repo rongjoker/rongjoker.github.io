@@ -10,7 +10,7 @@ ACMer往往看不上leetcode的竞赛。题目文字描述简短且是中文(狗
 <br>
 
 
-### contest236
+### 周赛236
 
 
 [1824. 最少侧跳次数](https://leetcode-cn.com/problems/minimum-sideway-jumps/) 是dp里比较令人纠结的题目，它很容易想到状态的转移，但是很难想出准确的转移方程<br>
@@ -44,7 +44,7 @@ ACMer往往看不上leetcode的竞赛。题目文字描述简短且是中文(狗
 实际上dp仅有一维，甚至可以看作没有dp数组，就是三个数字，不停的替换即可。类似的，01背包和完全背包也可以在一维数组上运算。
 
 
-### contest235
+### 周赛235
 
 [1818. 绝对差值和](https://leetcode-cn.com/contest/weekly-contest-235/problems/minimum-absolute-sum-difference/) 是一道利用二分查找优化蛮力算法的典型题目。蛮力算法往往能简单粗暴地解决问题，只是题目往往卡时间，所以利用一些特殊方法进行优化，比如之前计算容器的单调栈，比如这个题目的二分查找<br>
 这个题目关键在于从nums1中找到与nums2[i]差值最小的数字，蛮力的话，就是n^2两次迭代，利用二分查找可以优化到nlogn。需要注意的是，查找相近的数据而不是相同的数据，故要考虑左右，而且要注意边界，以下列出核心的查找相近数字的程序代码:
@@ -74,7 +74,8 @@ ACMer往往看不上leetcode的竞赛。题目文字描述简短且是中文(狗
     }
 ```
 
-
+### 双周赛49
+[1814. 统计一个数组中好对子的数目](https://leetcode-cn.com/contest/biweekly-contest-49/problems/count-nice-pairs-in-an-array/) ，这个题目属于数学题的范畴。比较巧妙的利用加减法交换律：`nums[i] + rev(nums[j]) == nums[j] + rev(nums[i])nums[i]+rev(nums[j])==nums[j]+rev(nums[i])`，推算出`nums[i] - rev(nums[i]) == nums[j] - rev(nums[j])nums[i]−rev(nums[i])==nums[j]−rev(nums[j])`。也就是统计`nums[i] - rev(nums[i])`各值的出现次数，进行`k*(k-1)/2`求组合即可。放在数学上其实是很简单的题目，不过放在算法题目里就很费解。还好做题时候可以百度组合数公式。
 
 
 
