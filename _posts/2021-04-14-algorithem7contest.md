@@ -10,24 +10,71 @@ ACMer往往看不上leetcode的竞赛。题目文字描述简短且是中文(狗
 <br>
 
 
-
 ### contest236
 
-前缀树(Trie)又称字典树，是一种树形数据结构，用于高效地存储和检索字符串数据集中的键。这一数据结构有相当多的应用情景，例如自动补完和拼写检查。使用过solr或者es等倒排索引工具的开发者应该对此比较敏感。[208. 实现 Trie (前缀树)](https://leetcode-cn.com/problems/implement-trie-prefix-tree/) 即是前缀树的设计题目。<br>
-前缀树本质是一种树，不过这种树比较特殊，以英文小写字串为例，每个节点有26个子节点，同时每个节点除了存储字母外,附带一个是否结束的标识，如果结束则说明能搜索到结果，否则仅仅是前缀。原理简单，检索的复杂度也极低(O(n))，大道至简。
-<br>
-首先是初始化:
-```
-    private final Trie[] children;
-    private boolean isEnd;
 
-    public Trie() {
-        children = new Trie[26];
-        isEnd = false;
+[1824. 最少侧跳次数](https://leetcode-cn.com/problems/minimum-sideway-jumps/) 是dp里比较令人纠结的题目，它很容易想到状态的转移，但是很难想出准确的转移方程<br>
+往往dp的递推是从n-1递推n，而这个题目是在n的内部互相递推。另外一点这个题目和其他dp题目类似，可以利用降维的方式，大幅度降低计算复杂度:
+
+```
+         long[] dp = new long[4];
+    
+            dp[1]=dp[3]=1;
+    
+            for(int i=1;i<len;++i){
+    
+                if(obstacles[i]==1)
+                    dp[1] = Integer.MAX_VALUE;
+                if(obstacles[i]==2)
+                     dp[2] = Integer.MAX_VALUE;
+                if(obstacles[i]==3)
+                    dp[3] = Integer.MAX_VALUE;
+    
+    
+                if(obstacles[i]!=1)
+                    dp[1] = Math.min(Math.min(dp[2],dp[3])+1,dp[1]);
+                if(obstacles[i]!=2)
+                    dp[2] = Math.min(Math.min(dp[1],dp[3])+1,dp[2]);
+                if(obstacles[i]!=3)
+                    dp[3] = Math.min(Math.min(dp[1],dp[2])+1,dp[3]);
+    
+            }
+```
+
+实际上dp仅有一维，甚至可以看作没有dp数组，就是三个数字，不停的替换即可。类似的，01背包和完全背包也可以在一维数组上运算。
+
+
+### contest235
+
+[1818. 绝对差值和](https://leetcode-cn.com/contest/weekly-contest-235/problems/minimum-absolute-sum-difference/) 是一道利用二分查找优化蛮力算法的典型题目。蛮力算法往往能简单粗暴地解决问题，只是题目往往卡时间，所以利用一些特殊方法进行优化，比如之前计算容器的单调栈，比如这个题目的二分查找<br>
+这个题目关键在于从nums1中找到与nums2[i]差值最小的数字，蛮力的话，就是n^2两次迭代，利用二分查找可以优化到nlogn。需要注意的是，查找相近的数据而不是相同的数据，故要考虑左右，而且要注意边界，以下列出核心的查找相近数字的程序代码:
+
+```
+    int middle,left_val,right_val;
+    public int calculate(int[] nums11,int target,int left,int right){
+        left_val = nums11[left];right_val=nums11[right];
+        while(left<=right){
+
+            middle = left + ((right - left)>>1);
+
+            if(nums11[middle]>target){
+                right_val = nums11[middle];
+                right=middle-1;
+            }
+            else if(nums11[middle]<target){
+                left_val = nums11[middle];
+                left=middle+1;
+            }
+            else return 0;
+        }
+
+        return Math.min(Math.abs(left_val - target),Math.abs(right_val - target));
+
+
     }
 ```
 
-### contest235
+
 
 
 
