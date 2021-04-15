@@ -46,7 +46,7 @@ ACMer往往看不上leetcode的竞赛。题目文字描述简短且是中文(狗
 
 ### 周赛235
 
-[1818. 绝对差值和](https://leetcode-cn.com/contest/weekly-contest-235/problems/minimum-absolute-sum-difference/) 是一道利用二分查找优化蛮力算法的典型题目。蛮力算法往往能简单粗暴地解决问题，只是题目往往卡时间，所以利用一些特殊方法进行优化，比如之前计算容器的单调栈，比如这个题目的二分查找<br>
+[1818. 绝对差值和](https://leetcode-cn.com/contest/weekly-contest-235/problems/minimum-absolute-sum-difference/) 是一道利用二分查找优化蛮力算法的典型题目。蛮力算法往往能简单粗暴地解决问题，只是题目往往卡时间，所以利用一些特殊方法进行优化，比如之前计算容器的单调栈，比如这个题目的二分查找。<br>
 这个题目关键在于从nums1中找到与nums2[i]差值最小的数字，蛮力的话，就是n^2两次迭代，利用二分查找可以优化到nlogn。需要注意的是，查找相近的数据而不是相同的数据，故要考虑左右，而且要注意边界，以下列出核心的查找相近数字的程序代码:
 
 ```
@@ -79,5 +79,41 @@ ACMer往往看不上leetcode的竞赛。题目文字描述简短且是中文(狗
 
 
 
+### 周赛233
 
+这次周赛很尴尬，只做了2个题目，算是提前退赛。leetcode的数学题目实在不想做，在编程里费劲，在数学里无用。实属鸡肋。[1802. 有界数组中指定下标处的最大值](https://leetcode-cn.com/problems/maximum-value-at-a-given-index-in-a-bounded-array/) 是一道不错的题目。首先想到的是等差数列，做起来挺费劲的，边界条件一塌糊涂。后来看题解有个作者采用叠罗汉塔的方式来完成，属实把等差数列玩出花了。以下为java复刻版本:
+
+```
+    //叠罗汉塔的方式，铺满后剩下的做地基
+        //第一个就是从index位置叠1个，下面不停的左右扩散1-3-5，某一边撞墙则那边停止
+        //   1
+        //  111
+        // 111111
+        public int maxValue(int n, int index, int maxSum) {
+    
+            int left = index, right = index;
+            int result = 1;
+            // 整个数组一开始全部填充为1，
+            // rest记录先全部填充1后，剩下1的个数
+            int rest = maxSum - n;
+            while (left > 0 || right < n - 1) {
+                int len = right - left + 1;
+                if (rest >= len) {
+                    // 当前[l,r]范围全部+1
+                    rest -= len;
+                    result++;
+                    // 往左右两边扩
+                    left = Math.max(0, left - 1);//撞墙停止
+                    right = Math.min(n - 1, right + 1);//撞墙停止
+                } else {
+                    break;
+                }
+            }
+            // 从小向大叠罗汉塔，剩余的可以用来铺地基，能铺多少是多少
+            result += rest / n;
+            return result;
+    
+    
+        }
+```
 
