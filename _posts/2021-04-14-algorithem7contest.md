@@ -10,15 +10,52 @@ ACMer往往看不上leetcode的竞赛。题目文字描述简短且是中文(狗
 <br>
 
 
-### 周赛237
-早上被叫去打疫苗，9点触发，11多赶回来，只来得及做了第一题。尴尬
+### 周赛237(2021-04-18)
+早上被叫去打疫苗，9点触发，11多赶回来，只来得及做了第一题。尴尬。
 
-### 周赛237
-早上被叫去打疫苗，9点触发，11多赶回来，只来得及做了第一题。尴尬
+### 双周赛50(2021-04-17)
+晚上小孩吵得厉害，必须关闭亮光她才睡得着，同时老婆抱怨青轴又太吵，刷两题后索性停止。其中一个题目是几何题，基本画图后即可解决。<br>
 
-### 双周赛50
-晚上小孩吵得厉害，必须关闭亮光她才睡得着，同时老婆抱怨青轴又太吵，刷两题后索性停止。其中一个题目是几何题，基本画图后即可解决。两道未做的题目中，有一个是位运算的题目，最近竞赛位运算的题目越来越多，必须得专门学习一下。
+[5719. 每个查询的最大异或值](https://leetcode-cn.com/problems/maximum-xor-for-each-query/) 是位运算类型的题目，展示了与或运算的巧妙。与或运算具有自反性(x^x=0)，满足交换律、结合律、^0不变性，运用得当可以事半功倍:
 
+```
+             public int[] getMaximumXor(int[] nums, int maximumBit) {
+                 int max = (1<<maximumBit) -1;
+                 int len = nums.length;
+                 int current = 0;
+                 for (int num : nums) {
+                     current ^= num;
+                 }
+                 int[] ans = new int[len];
+         
+                 for (int i=len-1;i>=0;--i){
+                     ans[len - i -1] = max ^ current;
+                     current ^= nums[i];
+                 }
+                 return ans;
+         
+             }
+```
+
+python版本得益于操作元组的便利性，代码更加简洁:
+```
+    def getMaximumXor(self, nums: List[int], maximumBit: int) -> List[int]:
+        lists = []
+        product = 0
+        mask = (1 << maximumBit) - 1  # 能左移的最高位置
+        for n in nums:
+            product ^= n
+        while nums:
+            lists.append(product ^ mask)
+            product ^= nums.pop()
+        return lists
+```
+
+具体来说，mask = (1 << maximumBit) - 1相当于当前数字能运算出的最大值，反向与当前值做与或运算即可得出k，当前值`^nums[i] `即下一个当前值。
+
+
+
+### 周赛236
 
 [1824. 最少侧跳次数](https://leetcode-cn.com/problems/minimum-sideway-jumps/) 是dp里比较令人纠结的题目，它很容易想到状态的转移，但是很难想出准确的转移方程<br>
 往往dp的递推是从n-1递推n，而这个题目是在n的内部互相递推。另外一点这个题目和其他dp题目类似，可以利用降维的方式，大幅度降低计算复杂度:
