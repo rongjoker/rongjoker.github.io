@@ -1,123 +1,157 @@
 ---
 layout: post
-title: 算法笔记(八):位运算与以和为贵
+title: 算法笔记(八):双指针与编程的直觉
 ---
 
-### 位运算
-自上个世纪DNA"发明"以来，生物界发生了翻天覆地的变化。DNA打破了非常多的人类固有认知，让"滴血认亲"不再是封建迷信、破解几十年的悬案、解决无数的人伦纠纷。DNA所有的魔法般的应用，归根结底都来源于一种朴素的道理:事物A可以以很少的变化步骤变成事物B，则A和B相似度最高，甚至就是B。<br>
-经典的dp题目`编辑距离`即是对这一道理的实践。
+### 排序算法与直觉
+一般来说，我们首先学到的算法就是排序。排序是很典型的场景具化的需求，即现实中我们需要排序，编程时就进行对应的排序，简称模拟。比如学生早操排队、分数成绩排名，都是最简单的排序。也因来源于生活场景，所以将生活的直觉转化为代码操作，也就有了最初的排序算法。起泡排序，来源于最无脑的一一比较排列；选择or插入排序，来源于我们打扑克的洗牌以及变形；归并排序，很像小组先排序，然后班内排序，之后年级排序，最后全校排序。这些排序算法，都很符合生活的直觉，因此，这些算法对初学者来说很容易理解和掌握。<br>
+另一类排序算法则反生活直觉，如快速排序、堆排序。快速排序要求两个指针向中间不停移动，堆排序需要构建大(小)顶堆，这些操作，与上一段提到的几种排序相反，你很难向一般的非编程人员描述清楚并指望他们理解。仔细想想，为何上一段的几种算法，他们会容易理解？无非是他们建立了生活常识，若对无生活常识的人，比如一个未入学的孩童，他未必能理解很简单的起泡排序。对于软件工程师来说，双指针、树(堆)也就是常识，也就是编程的常识。有了这些常识，遇到问题才会产生编程的直觉。<br>
+我们不断的学习知识，就是为了培养我们的直觉。
 
 
 
-### 编辑距离
 
- [72. 编辑距离](https://leetcode-cn.com/problems/edit-distance/) 是leetcode上的一个`编辑距离`类型的题目，其实这类题目有多种变形，leetcode的题目是其中最简单的一种，虽然难度是hard，但它只考虑单个字母的有限的操作(插入、删除、替换)，不考虑内部的字母交换位置和双字母的替换位置等情况。编辑距离属于典型的"有思路就非常简单，没思路则无从下手"的题目，如果你理解了这种题目，会觉得只能算
- easy难度;不过这个理解的过程，就很hard。<br>
-此类题目一般有2种解法。第一种是递归，也是最为直观的解法，代码本身的阅读过程就是对这类题目的理解过程。可以利用记忆化搜索来优化性能。<br>
+### 三数之和
+ [15. 三数之和](https://leetcode-cn.com/problems/3sum/) 是一个较能反应编程直觉的题目，有经验的工程师应当能反应出用双指针可以快速解决；同理，他应当反应出双指针处理这类问题的基础是数据有序，这样可以固定一侧然后推动左右两个指针夹逼的同时，亦可进行剪枝。<br>
 ```
-              public int minDistance(String word1, String word2) {
-                      int max1 = word1.length(),max2 = word2.length();
-                      if(max1==0) return max2;
-                      if(max2==0) return max1;
-                      dp = new int[max1+1][max2+1];
-                      for (int i = 0; i <= max1; i++) {
-                          for (int j = 0; j <= max2; j++) {
-                              dp[i][j] = -1;
+              public List<List<Integer>> threeSumsOptimize(int[] nums) {
               
+                      List<List<Integer>> lists = new ArrayList<>();
+                      if (nums.length < 3) return lists;
+                      Arrays.sort(nums);
+                      if (nums[0] > 0) return lists;//最小值肯定要小于等于=0
+                      int n = nums.length, left, right;
+                      for (int i = 0; i < n - 1; i++) {
+                          if (i > 0 && nums[i] == nums[i - 1]) continue;//排序+比较来去重复
+              
+                          left = i + 1;
+                          right = n - 1;
+                          while (right > left) {
+              
+                              if (nums[i] + nums[left] + nums[right] == 0) {
+                                  List<Integer> integers = new ArrayList<>();
+                                  integers.add(nums[i]);
+                                  integers.add(nums[left]);
+                                  integers.add(nums[right]);
+                                  lists.add(integers);
+                                  while (right > left && nums[left] == nums[left + 1]) left++;
+                                  while (right > left && nums[right] == nums[right - 1]) right--;
+              
+                                  left++;
+                                  right--;
+                              } else if (nums[i] + nums[left] + nums[right] > 0) right--;
+                              else left++;
+                          }
+              
+              
+                      }
+              
+                      return lists;
+              
+                  }
+```
+
+### 四数之和
+ [18. 四数之和](https://leetcode-cn.com/problems/4sum/) 是上一个题目的升级版本。做过上一个题目，产生的直觉进行加强，左右两端固定，中间两个指针推动，推动结束再移动右侧，右侧移动结束，再移动左侧，实现四轴运转：<br>
+```
+              class Solution:
+                  def fourSum(self, nums: List[int], target: int) -> List[List[int]]:
+                      lists = []
+                      lens = len(nums)
+                      if lens < 4:
+                          return lists
+                      nums.sort()
+                      for i in range(0, lens - 3):
+                          if nums[i] + nums[i + 1] + nums[i + 2] + nums[i + 3] > target:
+                              break
+                          if i > 0 and nums[i] == nums[i - 1]:
+                              continue
+                          j = lens - 1
+                          while j > 2:
+                              if j < lens - 1 and nums[j] == nums[j + 1]:
+                                  j = j - 1
+                                  continue
+                              left = i + 1
+                              right = j - 1
+                              while left < right:
+                                  sum = nums[i] + nums[j] + nums[left] + nums[right]
+                                  if sum == target:
+                                      lists.append([nums[i], nums[j], nums[left], nums[right]])
+                                      while nums[left] == nums[left + 1] and left < right:
+                                          left = left + 1
+                                      left = left + 1
+                                      while nums[right] == nums[right - 1] and left < right:
+                                          right = right - 1
+                                      right = right - 1
+                                  elif sum < target:
+                                      left = left + 1
+                                  else:
+                                      right = right - 1
+                              j = j - 1
+                      return lists
+```
+> 这类题目用python做有天然优势, lists.append([nums[i], nums[j], nums[left], nums[right]]) 这行代码用java需要写得极为繁琐
+
+### 番外篇之最接近的三数之和
+ [16. 最接近的三数之和](https://leetcode-cn.com/problems/3sum-closest/) 是三数之和的变形，融合了dp的思想。<br>
+```
+              class Solution {
+                  public int threeSumClosest(int[] nums, int target) {
+                      int len = nums.length;
+                      int min = Integer.MAX_VALUE;
+                      Arrays.sort(nums);
+                       int sum,left,right,temp,current = Integer.MAX_VALUE;
+                      for(int i=0;i<len;++i){
+                          if(i>0 && nums[i]==nums[i-1])continue;
+              
+                          left = i+1;right = len-1;
+                          while(left<right){
+                              sum = nums[i] + nums[left] + nums[right];
+                              if(sum==target)return target;
+                              temp = Math.abs(sum - target);
+                              if(temp< current){
+                                  current = temp;
+                                  min = sum;
+                              }
+                              if(sum <target){
+                                     while(left<right &&nums[left+1]==nums[left])left++;
+                              left++;
+                              } else{
+                                  while(left<right &&nums[right-1]==nums[right])right--;
+                                  right--;
+                              }
                           }
                       }
-                      return distance(word1,word2,max1,max2,0,0);
+                      return min;
+              
                   }
-              
-                  int[][] dp;
-              
-              
-                  public int distance(String word1, String word2,int max1,int max2,int index1,int index2){
-                      if(dp[index1][index2]!=-1) return dp[index1][index2];
-                      int step;
-                      if(index1==max1) step =  max2 - index2;//递归基:插入字段
-                      else if(index2==max2) step = max1 - index1;//递归基:删除多余的字段
-                      else if(word1.charAt(index1)== word2.charAt(index2)){
-                          step =  distance(word1,word2,max1,max2,index1+1,index2+1);
-                      }else
-                          step =  Math.min(Math.min(1+ distance(word1,word2,max1,max2,index1+1,index2),//删除word1的index1
-                                  1+ distance(word1,word2,max1,max2,index1,index2+1)//插入word1的index1
-                          ),1+ distance(word1,word2,max1,max2,index1+1,index2+1));//替换掉word1的index1
-                      dp[index1][index2] = step;
-                      return step;
-                  }
-```
-<br/>
-第二种方法为典型的动态规划的方法，也就是状态转移，其实就是递归方法（自顶向下）的反向方程转移版本（自下向上）。状态转移方程为：如果当前位置两个char相同，则需要的步骤不变，即不做任何操作，前进到下一个char；否则在插入、删除、替换种选择一个需要步骤最少的操作。代码如下:
-
-```
-            int max1 = word1.length(),max2 = word2.length();
-                   if(max1==0) return max2;
-                   if(max2==0) return max1;
-                   dp = new int[max1+1][max2+1];
-           
-                   //注意这里要进1制，别忘了等号
-                   for (int i = 0; i <= max2; i++) {
-                       dp[0][i] = i;
-                   }
-           
-                   //注意这里要进1制，别忘了等号
-                   for (int i = 0; i <= max1; i++) {
-                       dp[i][0] = i;
-                   }
-           
-           
-                   for (int i = 0; i < max1; i++) {
-                       for (int j = 0; j < max2; j++) {
-                           if(word1.charAt(i) == word2.charAt(j))
-                               dp[i+1][j+1] = dp[i][j];
-                           else{
-                               dp[i+1][j+1] = 1 + Math.min(Math.min(dp[i+1][j],dp[i][j+1]),dp[i][j]);
-                           }
-                       }
-                   }
-           
-                   return dp[max1][max2];   
+              }
 ```
 
-### 简版编辑距离
-编辑距离代码少，理解了很直观，可是不理解的话，很难做。 [583. 两个字符串的删除操作](https://leetcode-cn.com/problems/delete-operation-for-two-strings/) 是编辑距离的简化版本，难度为meduim，可以尝试，dp的代码几乎和72题完全一样加深理解:
-
+### 番外篇之存在重复元素 III
+ [220. 存在重复元素 III](https://leetcode-cn.com/problems/contains-duplicate-iii/) 这个题目反而更像两数之和，不过对数据结构更加依赖，Treemap满足了可以快速查找到高于目标值(set.floor)和低于目标值(set.ceiling)的最近的数据,而set本身也是比较好的维护滑动窗口的数据结构<br>
 ```
-public int minDistance(String word1, String word2) {
-
-        int max1 = word1.length(),max2 = word2.length();
-        if(max1==0) return max2;
-        if(max2==0) return max1;
-        int[][] dp = new int[max1+1][max2+1];
-
-        //注意这里要进1制，别忘了等号
-        for (int i = 0; i <= max2; i++) {
-            dp[0][i] = i;
-        }
-
-        //注意这里要进1制，别忘了等号
-        for (int i = 0; i <= max1; i++) {
-            dp[i][0] = i;
-        }
-
-        for (int i = 0; i < max1; i++) {
-            for (int j = 0; j < max2; j++) {
-                if(word1.charAt(i) == word2.charAt(j))
-                    dp[i+1][j+1] = dp[i][j];
-                else{
-                    dp[i+1][j+1] = Math.min(Math.min(dp[i+1][j],dp[i][j+1])+1,dp[i][j]+2);//同时删2个
-                }
-
-            }
-        }
-
-        return dp[max1][max2];
-
-
-    }
-
+                 public boolean containsNearbyAlmostDuplicate(int[] nums, int k, int t) {
+                     TreeSet<Long> set = new TreeSet<>();
+                     int len = nums.length;
+                     for (int i = 0; i < len; i++) {
+             
+                         Long  floor = set.floor((long)nums[i] + (long)t);//防止溢出
+             
+                         if(floor!=null &&  floor >= ((long)nums[i] - (long)t))
+                             return true;
+             
+                         set.add((long)nums[i]);
+             
+                         if(i>=k){//用这种下标方式删除来维护滑动窗口的效果更好
+                             set.remove((long)nums[i-k]);
+                         }
+             
+             
+                     }
+             
+                     return false;
+             
+             
+                 }
 ```
-
-
-> 这个题目在未修改代码的情况下，提交了两次，一次10%，一次46%，特意翻了下题解，和90+%的代码复杂度一致，leetcode的判定真的很诡异。 
