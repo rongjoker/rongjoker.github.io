@@ -80,7 +80,7 @@ title: 算法笔记(六):几种特殊的数据结构
 ```
 
 二维前缀和理解起来要费劲很多，原理可以用下图表示:
-![avatar](../assets/images/prexsum.jpeg)
+![前缀和](../assets/images/prexsum.jpeg)
 <br>
 S(O,D)=S(O,C)+S(O,B)−S(O,A)+D
 <br>
