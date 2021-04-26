@@ -9,6 +9,28 @@ ACMer往往看不上leetcode的竞赛。题目文字描述简短且是中文(狗
 以下记录诸次比赛中值得温习的题目。
 <br>
 
+### 周赛238(2021-04-25)
+[1838. 最高频元素的频数](https://leetcode-cn.com/problems/frequency-of-the-most-frequent-element/) 排序后，用蛮力算法会超时，此类问题，用双指针(滑动窗口可以避免大量的重复计算):
+
+```
+class Solution:
+    def maxFrequency(self, nums: List[int], k: int) -> int:
+        lens = len(nums)
+        if lens == 1:
+            return 1
+        nums.sort()
+        left = 0
+        sumx = 0
+        maxs = 0
+        for right in range(1,lens):
+            sumx += (right -left) * (nums[right] - nums[right-1])
+            while sumx > k:
+                sumx -= (nums[right] - nums[left])
+                left += 1
+            maxs = max(maxs, right - left + 1)
+        return maxs
+```
+
 
 ### 周赛237(2021-04-18)
 早上被叫去打疫苗，9点触发，11多赶回来，只来得及做了第一题。尴尬。
