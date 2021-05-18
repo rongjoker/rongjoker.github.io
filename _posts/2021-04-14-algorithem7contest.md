@@ -9,6 +9,100 @@ ACMer往往看不上leetcode的竞赛。题目文字描述简短且是中文(狗
 以下记录诸次比赛中值得温习的题目。
 <br>
 
+
+
+
+
+### 双周赛52(2021-05-15)
+[5212. 向下取整数对和](https://leetcode-cn.com/problems/sum-of-floored-pairs/) 可以利用桶排序来降低复杂度，桶排序往往是解决hard难度题目的一个取巧的途径，一般来说，能将O(n^2)降低到O(n):
+<br>
+```
+给你一个整数数组nums，请你返回所有下标对0 <= i, j < nums.length的floor(nums[i] / nums[j])结果之和
+```
+桶排序算是一种反常规算法的解题思路，不过也是现实中解决问题的一种方法映射。本质上是把结果所在的范围的所有数据都拿出来，然后将数据进行填充，有效数据的桶会进行计数。随后遍历所有的桶，分析计数即可。
+
+
+```
+ long ans = 0L;
+        int max = 0;
+        for (int num : nums)
+            max = Math.max(max,num);
+
+        int[] sum = new int[max*2];
+        int[] bucket = new int[max+1];
+
+        for (int num : nums)
+            bucket[num]++;
+        for (int i = 1; i < max*2; i++){
+            if(i <=max)
+            sum[i] += sum[i-1] + bucket[i];
+            else sum[i] += sum[i-1];
+        }
+
+        for (int i = 1; i <= max; i++) {
+            if(bucket[i]>0){//跳跃无效的桶数据
+                for (int j = 1; j * i <= max; j++) {//除数为j
+                    ans +=  ((long) (sum[i * (j + 1) -1] - sum[(i*j) - 1]) * j * bucket[i])%mod ;
+                    ans %=mod;
+                }
+            }
+
+            ans %=mod;
+        }
+
+```
+
+### 周赛239(2021-05-02)
+[1851. 包含每个查询的最小区间](https://leetcode-cn.com/problems/minimum-interval-to-include-each-query/) 这个题目引入了一个新的思想:`离线算法`:
+显然，它需要预先知道所有的查询条件，然后打乱，和应用题目里的数据融合在一起，进行计算。这个题目也是反直觉的典型。
+
+```
+public int[] minInterval(int[][] intervals, int[] queries) {
+        List<int[]> ready = new ArrayList<>();
+        for (int[] interval : intervals) {
+            ready.add(new int[]{0, interval[0], interval[1]});//开始
+            ready.add(new int[]{2, interval[1], interval[0]});//结束
+        }
+        for (int i = 0; i < queries.length; i++) {
+            ready.add(new int[]{1, queries[i], i});//查询
+        }
+        ready.sort(((o1, o2) -> {
+            if (o1[1] != o2[1]) {
+                return o1[1] - o2[1];
+            } else return o1[0] - o2[0];
+        }));
+
+
+        int len = queries.length;
+        TreeMap<Integer, Integer> map = new TreeMap<>();//维持长度的排序
+        int[] ans = new int[len];
+        int sw;
+
+        for (int[] r : ready) {
+            if (r[0] == 0) {//开始事件
+                sw = r[2] - r[1] + 1;
+                map.put(sw, map.getOrDefault(sw, 0) + 1);//这个宽度有几个区间
+            } else if (r[0] == 2) {//结束事件,删除对应长度
+                sw = r[1] - r[2] + 1;
+                int available = map.get(sw);
+                if (available > 1) {
+                    map.put(sw, available - 1);//这个宽度有几个区间,减去一个
+                } else map.remove(sw);//空了就删除
+
+            } else {//r[0] == 1 查询
+                if (map.isEmpty()) ans[r[2]] = -1;
+                else ans[r[2]] = map.firstKey();
+            }
+        }
+
+        return ans;
+
+    }
+```
+
+对应的`在线算法` 就是线段树。线段树可以动态的根据输入的条件，动态修改数据并动态查询。
+
+
 ### 周赛238(2021-04-25)
 [1838. 最高频元素的频数](https://leetcode-cn.com/problems/frequency-of-the-most-frequent-element/) 排序后，用蛮力算法会超时，此类问题，用双指针(滑动窗口可以避免大量的重复计算):
 
