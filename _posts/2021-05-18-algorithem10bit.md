@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 算法笔记(十):数字时代的本质即位运算
+title: 算法笔记(十):位运算与状态压缩
 ---
 
 ### 位运算
@@ -28,3 +28,96 @@ leetcode各种系列中，以`只出现一次的数字`系列最鲜为人知。�
 
         return ans;
 ```
+
+### 状态压缩
+位运算的另外一大用途是状态压缩。<br>
+前缀和类的题目，以前缀和来解决，往往需要n^2的复杂度，在数据量比较大的情况下会超时，此时可以用位运算进行状态压缩进行优化。
+[318. 最大单词长度乘积](https://leetcode-cn.com/problems/maximum-product-of-word-lengths/) 难度要高出不少。<br>
+
+```
+public int maxProduct(String[] words) {
+        int len = words.length;
+        int[][] available = new int[len][26];
+        for(int i=0;i<len;++i){
+            char[] cs=words[i].toCharArray();
+            for(char c:cs){
+                available[i][c-'a']++;
+            }
+        }
+
+        int ans = 0;
+
+        for(int i=0;i<len-1;++i){
+            char[] cs=words[i].toCharArray();
+            loop:for(int j=i+1;j<len;++j){
+                for(char c:cs){
+                    if(available[j][c-'a']>0)continue loop;
+                }
+                ans = Math.max(words[i].length() * words[j].length(),ans);
+            }
+        }
+        return ans;
+    }
+```
+
+这个解法已经是常规优化的版本，数组的效率已经是常规情况下最高的。<br>
+用位运算则快很多：
+
+```
+   public int mask(String word){
+        int ans = 0;
+        char[] cs=word.toCharArray();
+        for(char c:cs){
+            ans |=(1 << (c-'a'));//或运算回避了重复添加的问题
+        }
+
+        return ans;
+
+    }
+
+
+    public int maxProductBit(String[] words) {
+        int len = words.length;
+        int[] available = new int[len];
+        for(int i=0;i<len;++i)available[i] = mask(words[i]);
+
+        int ans = 0;
+
+        for(int i=0;i<len-1;++i){
+            for(int j=i+1;j<len;++j){
+                if((available[i] & available[j]) >0) continue;//与运算判断重复
+                ans = Math.max(words[i].length() * words[j].length(),ans);
+            }
+        }
+        return ans;
+    }
+
+```
+
+[1915. 最美子字符串的数目](https://leetcode-cn.com/problems/number-of-wonderful-substrings/) 则是状态压缩的更好运用。这个题目用传统的前缀和会超时，必须进行位运算优化:<br>
+
+```
+ public long wonderfulSubstringsZip(String word) {
+         int len = word.length();
+         if(len==1)return 1;
+         long ans = 0;
+         int mask = 0;
+ 
+         long[] freq = new long[1 << 10];
+         freq[0] = 1;//相当于偶数初始化有1个
+ 
+         char[] chars = word.toCharArray();
+         for (int i = 0; i < len; i++) {
+             mask ^= (1<<(chars[i]-'a'));//之前如果是奇数则现在变偶数
+             ans += freq[mask];//之前的奇偶性完全一样的数量，即偶数（奇数-奇数=偶数；偶数-偶数=偶数）,偶数为0
+             for (int j = 0; j < 10; j++) {
+                 ans += freq[mask ^ (1 << j)];//之前奇偶性差距一个的数量，允许差距1个
+             }
+             freq[mask]++;
+ 
+         }
+         return ans;
+     }
+
+```
+同样的题目也有: [1542. 找出最长的超赞子字符串](https://leetcode-cn.com/problems/find-longest-awesome-substring/)
