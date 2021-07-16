@@ -33,5 +33,14 @@ title: 算法笔记(十):旋转、跳跃、我闭上眼
            }
 ```
 
-
+### 交接重任
+[面试题 04.01. 节点间通路](https://leetcode-cn.com/problems/route-between-nodes-lcci/) ,这个题目的常规解法是回溯法，然后回溯法的一个缺乏是无法提前停止，解题耗时35ms，代码量很大。换成另一种解法，先找终点，找到后，把起点换做终点继续找，直到起点和初始点一致即可。代码量极少，且效率提升到3ms：
+```
+           public boolean findWhetherExistsPath(int n, int[][] graph, int start, int target) {
+               for(int[] g:graph)   
+                    if(g[1]==target && g[0]!=target)
+                          if(g[0]==start || findWhetherExistsPath(n,graph,start,g[0]))return true;
+               return false;
+           }
+```
 
