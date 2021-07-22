@@ -44,3 +44,41 @@ title: 算法笔记(十):旋转、跳跃、我闭上眼
            }
 ```
 
+### 开心消消乐
+
+[面试题 17.05.  字母与数字](https://leetcode-cn.com/problems/find-longest-subarray-lcci/) ,这个题目用常规的前缀和显然会超时。前缀和的优化思路是加上hash，怎么加hash则是个大学问。这个题目，可以判断字母，遇到字母，总数+1，遇到数字，总数-1。那么任何两个总数相同的区间内部，数字和字母的数量必然相等。这种精巧的思路，不得不让人点赞！代码如下：
+```
+           public String[] findLongestSubarray(String[] array) {
+                   int left = 0;
+                   int ans = 0;
+                   int len = array.length;
+                   Map<Integer,Integer> dict = new HashMap<>();
+                   dict.put(0,-1);
+                   int total = 0;
+                   for (int i = 0; i < len; ++i) {
+                       String cur = array[i];
+                       if(Character.isDigit(cur.charAt(0))){
+                           total++;
+                       }else total--;
+                       int prev = dict.getOrDefault(total,Integer.MAX_VALUE);
+                       if(prev!=Integer.MAX_VALUE){
+                           if(i-prev>ans){
+                               ans = i-prev;
+                               left = prev + 1;
+                           }
+                           
+                       }else dict.put(total,i);
+                       
+                     
+                   }
+           
+                   String[] ans_new = new String[ans];
+                   System.arraycopy(array, left, ans_new, 0, ans);
+           
+                   return ans_new;
+           
+               }
+```
+
+>  525.连续数组 这个题目算是这类题的母题
+
