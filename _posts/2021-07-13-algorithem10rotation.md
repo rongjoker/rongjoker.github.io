@@ -8,7 +8,7 @@ title: 算法笔记(十):旋转、跳跃、我闭上眼
 
 
 ### 字符串轮转
-我愿意把[面试题 01.09. 字符串轮转](https://leetcode-cn.com/problems/string-rotation-lcci/) 拿来做第一个批判和学习的对象。这个题目通常的解法，恐怕要进行n^2的两次循环来暴力解决。可以巧妙的解法则是把字符串1累加，再判断是否包含字符串2:<br>
+我愿意把[面试题 01.09. 字符串轮转](https://leetcode-cn.com/problems/string-rotation-lcci/) 拿来做第一个批判和学习的对象。这个题目通常的解法，恐怕要进行n^2的两次循环来暴力解决。可以巧妙的解法则是把字符串1累加(s1+s1)，再判断是否包含字符串2:<br>
 ```
        public boolean isFlipedString(String s1, String s2) {
            int len1 = s1.length(),len2 = s2.length();
@@ -82,3 +82,30 @@ title: 算法笔记(十):旋转、跳跃、我闭上眼
 
 >  525.连续数组 这个题目算是这类题的母题
 
+### 旋转、旋转、再旋转
+[189. 旋转数组](https://leetcode-cn.com/problems/rotate-array/) ,这个题目是旋转数组类题目的一个基础题目，比较巧妙的解法是先整体旋转整个数组，再旋转k左边，然后旋转k右边，完全跳出传统思维：
+
+```
+           public void rotate(int[] nums, int k) {
+                   int len = nums.length;
+                   k%=len;
+                   if(k==0)return;
+           
+                   rotate(nums,0,len-1);//整体旋转  123456789 ->987654321
+                   rotate(nums,0,k-1);//左边旋转,相当于转回去 ->789 654321
+                   rotate(nums,k,len-1);//右边旋转,相当于转回去 ->789 123456
+               }
+           
+           
+               public void rotate(int[] nums, int left,int right) {
+                   int temp;
+                   while(left<right){
+                       temp = nums[left];
+                       nums[left] = nums[right];
+                       nums[right] = temp;
+                       ++left;
+                       --right;
+           
+                   }
+               }
+```
