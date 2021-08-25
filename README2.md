@@ -39,4 +39,4 @@
 ### 联系我
 - 我坚持`如非必要，勿添实体`的原则，所以博客采用最简单的形式，不添加评价功能。如果有需要沟通联系，请在我的github任意项目添加issue，或者给我发邮件。
 - 我的gitHub： [让这个宇宙的墒增加得慢一些](https://github.com/rongjoker){:target="_blank"}
-- 我的邮箱： <magic4java2joker@gmail.com>
+- 我的邮箱： <magic_of_java@foxmail.com>
