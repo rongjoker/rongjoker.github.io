@@ -12,5 +12,6 @@ title: 温故知新之HTTP
 
 
 > 《图解HTTP》
+> https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Basics_of_HTTP/Evolution_of_HTTP 
 
 
