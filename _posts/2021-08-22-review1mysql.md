@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 温故知新之Mysql
+title: 温故知新之Mysql:收听<Mysql45讲>
 ---
 
 
