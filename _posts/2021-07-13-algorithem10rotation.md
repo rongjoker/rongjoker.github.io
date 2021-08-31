@@ -109,3 +109,35 @@ title: 算法笔记(十):旋转、跳跃、我闭上眼
                    }
                }
 ```
+
+### 差分之妙用
+
+[1109. 航班预订统计](https://leetcode-cn.com/problems/corporate-flight-bookings) ,这个题目可以用蛮力两轮循环来解决,效率比较低：
+
+```
+                  int[] ans = new int[n];
+
+        for (int[] booking : bookings) {
+            for (int i = booking[0]; i <= booking[1]; i++) {
+                ans[i - 1] += booking[2];
+            }
+        }
+        return ans;
+```
+
+另一种解决思路是差分:
+
+```
+        int[] nums = new int[n];
+        for (int[] booking : bookings) {
+            nums[booking[0] - 1] += booking[2];
+            if (booking[1] < n) {
+                nums[booking[1]] -= booking[2];
+            }
+        }
+        for (int i = 1; i < n; i++) {
+            nums[i] += nums[i - 1];
+        }
+        return nums;
+```
+
