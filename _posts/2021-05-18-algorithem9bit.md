@@ -141,3 +141,68 @@ public int maxProduct(String[] words) {
 ```
 
 同样的题目也有: [1542. 找出最长的超赞子字符串](https://leetcode-cn.com/problems/find-longest-awesome-substring/)
+
+
+[完成任务的最少工作时间段](https://leetcode-cn.com/problems/minimum-number-of-work-sessions-to-finish-the-tasks) 是 用二进制状态压缩来替代蛮力穷举法的最好应用。状态压缩从某种意义上来说，并没有改变编程的思路，只是将原有的思路用一种高效的方法来事件:<br>
+为了方便理解，可以将解题方法分成2个步骤，第一步是初始化数据，也是最难理解的部分:
+
+```
+  /**
+     * 初始化
+     * tasks是穷举所有可能的情况
+     * 比如[1,2,3],可能是[1,0,0][1,1,0],[1,0,1]----[1,1,1]等7种情况的数组，压缩到二进制里就是7个数字，
+     * 数组的长度可以直接用1>>3(即是8)来表示
+     * @param tasks
+     */
+    public int[]  initialize(int[] tasks,int sessionTime){
+        int len = tasks.length;
+        int max = 1<<len;
+        int[] dp = new int[max];
+        final int INF = 20;//最大长度为14，故设置为20即可
+        Arrays.fill(dp, INF);
+
+        for (int i = 1; i < max; i++) {//比如i=2，为011
+            int spend =0;
+            int cur = i;int cur_index = 0;
+            while (cur>0 && spend<=sessionTime){
+                int temp_bit = cur &1;//取当前位置，如果是1，表示选中
+                if(temp_bit==1)spend+=tasks[cur_index];
+                cur>>=1;//查看下一个位置
+                cur_index++;
+            }
+            if(spend<=sessionTime)dp[i] = 1;//一个时间周期可以做完,比如011，是第一个和第二个任务这种的，可以做完
+        }
+
+        return dp;
+
+
+    }
+
+```
+
+第二步是状态转移。
+
+```
+
+public int minSessions(int[] tasks, int sessionTime) {
+
+        int len = tasks.length;
+        int max = 1<<len;
+        int[] dp = initialize(tasks,sessionTime);
+        for (int i = 1; i < max; i++) {
+            if(dp[i]==1)continue;
+            //一个周期无法覆盖的情况
+            for (int j =i;j >0;j=i&(j-1)){
+                dp[i] = Math.min(dp[i],dp[j] + dp[j^i]);
+                //比如dp[1111] = dp[1001] + dp[0110],通过互补，全部选中
+            }
+        }
+        return dp[max-1];//即1111
+
+    }
+
+```
+
+可以看到，二进制主要是优化了第一步。第一步可以用二维数组进行蛮力处理，空间和效率都极高。用二进制将一个数组压缩成一个数字，二维数组压缩成一维数组，结合位运算的优势，效率和空间高出太多。同时，在第二步，位运算(异或)也可以更快地找到互补的数据。
+
+
