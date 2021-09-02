@@ -6,6 +6,7 @@ title: 温故知新之Mysql
 ## Mysql如何实现事务
 
 这是一个很大的问题。可以从事务的ACID特性的四个角度来分析。
+D(durable 持久化)最简单。redo log
 
 
 
