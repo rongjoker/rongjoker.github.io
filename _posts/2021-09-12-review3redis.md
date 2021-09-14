@@ -89,6 +89,7 @@ Redis分布式锁通过setnx(set if not exists)来占位，使用完调用del释
 ## 一致性Hash
 删除节点: 损失一部分hash数据
 增加节点: 一部分hash数据会在后续抵达新节点
+使用场景：
 
 
 
