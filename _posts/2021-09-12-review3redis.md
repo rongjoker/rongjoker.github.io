@@ -60,22 +60,22 @@ GET location/_search
 ```
 
 
-
-
-
 ## 热Key和大Key
 1. 缓存穿透:数据库没有,缓存没有<br>
-Spring-boot最新默认cache即支持空对象,为空则保存org.springframework.cache.support.NullValue
-2. 缓存击穿:数据库有,缓存没有(并发情况下恶劣影响)
-3. 缓存雪崩:大量缓存同时失效,db面临同时大量请求涌入
-4.热key:<br>
+Spring-boot最新默认cache即支持空对象,为空则保存org.springframework.cache.support.NullValue;布隆过滤器也可以解决
+2. 缓存击穿:数据库有,缓存没有(并发情况下恶劣影响);增加双写一致性;热key过期一瞬间也会发生，属于热key情况(参考4);redis查询不到，加锁去数据库查
+3. 缓存雪崩:大量缓存同时失效,db面临同时大量请求涌入;添加随机过期时间，避免集中过期;热点数据不过期,热key处理(参考4)
+4. 热key:<br>
 其实热key问题说来也很简单，就是瞬间有几十万的请求去访问redis上某个固定的key，从而压垮缓存服务的情情况。 其实生活中也是有不少这样的例子。比如XX明星结婚。那么关于XX明星的Key就会瞬间增大，就会出现热数据问题。
 以xy苹果助手为例子，热词有三种，像"微信"，"微博"，"QQ"，"支付宝"之类，是可以预知的热点数据；第二种是xy苹果助手引流推广的APP或者关键词，比如有段时间一元夺宝类app很火，公司快速制作了xy夺宝，首页重点推荐xy,再比如公司15年上市后大力推广全民奇迹，一度很火爆，这类主动引流的数据通常都是热点数据，qps很高；第三类是不可预知，但是可以通过类似日志分析统计出来的热词，用时间滑动窗口的的方式计算出最近一段时间最热的搜索词。这三类热点数据都会放入本地cache，并有轮询线程定时更新，避免了经过redis。
 登录 redis-cli 命令行，输入monitor，即可进入到 redis 监控模式。
 
 
 ## 队列与ACK以及kafka的优势
-Redis做队列，不具备ack，不适合对数据具有极高要求的场景
+Redis做队列，不具备ack，不适合对数据具有极高要求的场景<br>
+kafka 的ack
+kafka 的零拷贝
+netty 的零拷贝
 
 ## 分布式锁的方案
 Redis分布式锁通过setnx(set if not exists)来占位，使用完调用del释放，利用过期避免del未被调用出现锁不释放的情况,redis新版本通过设置set指令扩展参数，使得setnx和expir可以一起执行，彻底解决了非原子性引发的各种问题。<br>
@@ -87,12 +87,9 @@ Redis分布式锁通过setnx(set if not exists)来占位，使用完调用del释
 ## Redis 分布式性能的设计
 
 ## 一致性Hash
+删除节点: 损失一部分hash数据
+增加节点: 一部分hash数据会在后续抵达新节点
 
 
->http://bos.itdks.com/b2c20ce5c11940b6b0a4e98547f67664.pdf
-
-> https://database.51cto.com/art/202101/641019.htm
-> https://blog.csdn.net/SnailMann/article/details/94724197
-> https://www.zhihu.com/question/370950509/answer/1958141987
 
 
