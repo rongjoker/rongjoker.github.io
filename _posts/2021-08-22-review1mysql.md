@@ -28,6 +28,28 @@ D(durable 持久化)最简单。redo log
 长事务的存在导致锁发生冲突或等待的几率大大增加。
 如果某个应用有发生锁等待后尝试重新建立连接的机制，那么在发生锁等待或冲突的时候，应用就会不断地发起新的连接，导致MySQL的连接数被占用爆满。MySQL不能在提供连接服务，就挂掉了。
 
+### 连接池的公平锁与非公平锁
+
+```
+
+// 设置druid 连接池非公平锁模式
+dataSource.setUseUnfairLock(true);  
+
+```
+
+公平锁影响性能，于是将改为非公平锁模式，其实 druid 默认配置为非公平锁，不过一旦设置了maxWait 之后就会使用公平锁模式。在只修改一个参数的请求下，单机性能提升接近一倍，集群的吞吐量也差不多提升 70%。不过公平锁与非公平锁有这么大的性能差距还是比较震惊的。使用 HikariCP 替换后发现效果还是非常不错，单机性能一下从 1.5k(druid 公平锁) 提升到接近 3k.
+
+```
+
+还有一个小插曲是顺便调研了数据库连接池 HikariCP(https://github.com/brettwooldridge/HikariCP) ，使用 HikariCP 替换后发现效果还是非常不错，单机性能一下从 1.5k(druid 公平锁) 提升到接近 3k。其实 HikariCP 的一个优势就是快，当时都想要在公司推一波，不过要整个公司替换一遍也是不小的动作，虽然连接池使用上两者十分接近，但是配套的监控要重新弄一遍还是比较劳民伤财的。还好最终测试发现大部分情况下 druid 还不至于成为服务的瓶颈，而且配套的监控也比较全，如果真的追求更高的性能，HikariCP 是一个不错的选择。
+
+```
+
+有赞案例参考:
+> https://tech.youzan.com/you-zan-shu-ju-ku-lian-jie-chi-xing-neng-you-hua/
+
+
+
 >http://bos.itdks.com/b2c20ce5c11940b6b0a4e98547f67664.pdf
 
 > https://database.51cto.com/art/202101/641019.htm
