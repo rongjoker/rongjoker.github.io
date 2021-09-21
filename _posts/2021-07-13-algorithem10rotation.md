@@ -110,6 +110,59 @@ title: 算法笔记(十):旋转、跳跃、我闭上眼
                }
 ```
 
+
+### 先交换再旋转
+[31. 下一个排列](https://leetcode-cn.com/problems/next-permutation/) ,这个题目是看起来跟旋转无关，实际上可以先找到间断点(左小右大),然后把左小的右侧全部旋转。注意，右大是找到准确的右，因为右边本身是从右向左升序的，所以找到第一个大于左边的截止即可,以下用golang来实现：
+
+```
+           func nextPermutation(nums []int)  {
+    length:= len(nums)
+    if length == 1{
+        return
+    }
+    i:=length - 2
+    for i>=0{
+        if nums[i] < nums[i+1] {
+            break;
+        }
+        i--
+    }
+
+//关键的一步，找到右侧第一个大于左小的数字
+    if i >=0 {
+        j:= length - 1
+        for j>=0{
+            if nums[i]<nums[j]{
+                break;
+            }
+            j--
+        }
+        swap(nums,i,j)
+
+    }
+
+    reverse(nums,i+1,length-1)
+
+}
+
+func swap(nums []int,i int,j int){
+    temp:= nums[i]
+    nums[i] = nums[j]
+    nums[j] = temp
+ }
+
+ func reverse(nums []int,left int,right int){
+     for left < right{
+         swap(nums,left,right)
+         left++
+         right--
+     }
+ }
+
+
+
+```
+
 ### 差分之妙用
 
 [1109. 航班预订统计](https://leetcode-cn.com/problems/corporate-flight-bookings) ,这个题目可以用蛮力两轮循环来解决,效率比较低：
@@ -140,4 +193,6 @@ title: 算法笔记(十):旋转、跳跃、我闭上眼
         }
         return nums;
 ```
+
+
 
