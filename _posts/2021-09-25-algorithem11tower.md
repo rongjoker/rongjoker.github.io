@@ -153,3 +153,61 @@ class Solution:
 
 ```
 
+
+## 一塔与一城
+
+双数组类算法题目的变种有很多，比如list+set、list+map，一般来说，一个数据结构用来保存数据，一个数据结构用来记录数据特性(去重、第一次出现的下标，等等)。可以算作一塔与一城，而非双塔。<br>
+一塔与一城类题目最广泛的应用是在前缀和，前缀和求目标区间，一般的解法需要O(n^2)的复杂度，利用hashmap进行字典存储优化，可以降低到O(n).一个典型的题目如[字母与数字](https://leetcode-cn.com/problems/find-longest-subarray-lcci/) 。常规 O(n^2) 的解法:
+```
+def findLongestSubarray(array: List[str]) -> List[str]:
+    length = len(array)
+    if length <= 1:
+        return []
+    prefix = [0] * (length + 1)
+    for index, s in enumerate(array):
+        temp = 1 if ord(s[0]) > ord('9') else -1
+        prefix[index + 1] = prefix[index] + temp
+    left, right = 0, 0
+    for index in range(length + 1):
+        for j in range(length, -1, -1):
+            if prefix[j] - prefix[index] == 0:
+                if j - index > right - left:
+                    left = index
+                    right = j
+                    break
+    return array[left:right]
+```
+<br>虽然前缀和已经降低了复杂度，但是在大数据量下，此种解法依然会超时。
+<br>优化方案为借助一个map(dict)进行记录操作:
+```
+def findLongestSubarray(self, array: List[str]) -> List[str]:
+    length = len(array)
+    if length <= 1:
+        return []
+    prefix = [0] * (length + 1)
+    dict = {0: 0}
+    left, right = 0, 0
+    for index, s in enumerate(array):
+        temp = 1 if ord(s[0]) > ord('9') else -1
+        pref_sum = prefix[index] + temp
+        prefix[index + 1] = pref_sum
+        if pref_sum in dict:
+            prev = dict[pref_sum]
+            if index + 1 - prev > right - left:
+                left = prev
+                right = index + 1
+        else:
+            dict[pref_sum] = index + 1
+    return array[left:right]
+
+```
+
+<br>
+
+ 其他类似题目：
+> 560 和为 K 的子数组<br>
+> 930 和相同的二元子数组<br>
+> 974 和可被 K 整除的子数组<br>
+> 1371 每个元音包含偶数次的最长子字符串<br>
+> 1542 找出最长的超赞子字符串<br>
+> 1590 使数组和能被 P 整除
