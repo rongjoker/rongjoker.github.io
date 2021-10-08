@@ -204,8 +204,8 @@ def findLongestSubarray(self, array: List[str]) -> List[str]:
 
 <br>
 
- 其他类似题目：
-> 560 和为 K 的子数组<br>
+ 其他类似的 `prefix+hashmap` 题目：
+> 325 和等于 k 的最长子数组长度<br>
 > 930 和相同的二元子数组<br>
 > 974 和可被 K 整除的子数组<br>
 > 1371 每个元音包含偶数次的最长子字符串<br>
