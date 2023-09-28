@@ -30,4 +30,12 @@ AI的学习上，重新开始后，也算是有些突破，从paddlepaddle到回
 
 ### 删减和增加
 `gone with the wind`之后，会继续看书，养成看书的习惯是很重要的，因此决定，至少每个月一本原版书。电子的也好，纸质的也罢。<br>
-目前在9月底和10月初计划的是看`the shortest history of europe`， 算是对欧洲历史做一个outline的了解。读`gone with the wind`的经验，读故事小说太费时间了，对英语水平和阅读能力效率提升不高。因此会保持看时政经济类的书籍。欧洲史之后会看美国内战历史相关的一本书，在11月完成。同时保持`economist`的阅读。
+目前在9月底和10月初计划的是看`the shortest history of europe`， 算是对欧洲历史做一个outline的了解。读`gone with the wind`的经验，读故事小说太费时间了，对英语水平和阅读能力效率提升不高。因此会保持看时政经济类的书籍。欧洲史之后会看美国内战历史相关的一本书，在11月完成。同时保持`economist`的阅读。<br>
+抄一段`gone with the wind`的句子：
+```markdown
+    He never really existed at all, except in my imagination.I loved something I made up, something that's just as dead as Melly is. 
+    I made a pretty suit of clothes and fell in love with it. And when Ashley came riding along, so handsome, so different, I put that
+    suit on hime and made him wear it whether it fitted him or not. And I wouldn't see what he really was. I kept on loving the pretty
+    clothes -- and not him at all.
+
+```
