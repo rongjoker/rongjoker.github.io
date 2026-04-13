@@ -14,4 +14,3 @@ Email: magic_of_java@foxmail.com
 Wechat: lies_joker 
 
 ![lies_joker](https://z3.ax1x.com/2021/04/12/cD3gk4.md.jpg)
-{% include uyan.html %}

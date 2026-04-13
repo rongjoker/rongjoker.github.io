@@ -11,8 +11,6 @@ baseurl: null # apply null if repo name is something like username.github.io
 google_analytics: UA-40947781-3
 repo: https://github.com/rongjoker/rongjoker.github.io
 disqus_shortname: "rongjoker"
-uyan_id: "2141342"
-twitter_username: "rongjoker"
 comments: true 
 
 # Build settings
@@ -36,8 +34,6 @@ author:
   thumb    : /images/author.png
   email    : magic_of_java@foxmail.com
   url      : https://rongjoker.github.io/
-  github   : http://github.com/rongjoker
-  twitter: https://github.com/rongjoker/quarantineJ
 
 
 
@@ -50,11 +46,15 @@ gems:
   - bourbon
   - jekyll-paginate
 
-# navbar pages
+# navbar links
 navbar:
-  - slug : about
-    title: About
-  - slug : blog
-    title: Blog
+  - title: Home
+    url: /
+  - title: quarantineJ
+    url: https://github.com/rongjoker/quarantineJ
+  - title: GitHub
+    url: https://github.com/rongjoker
+  - title: About
+    url: /about/
 
 exclude: ["gulp", "node_modules", "bower", "bower_components", "config.rb", "src", "Gemfile", "Gemfile.lock", ".rvmrc", ".rbenv-version", "package.json", "gulpfile.js", "README.md", "Rakefile", "changelog.md"]
