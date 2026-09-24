@@ -1,0 +1,9 @@
+React Tetris by Chvin
+https://github.com/chvin/react-tetris
+Upstream revision: 89435b72f127b67f95870c515a130cbff38fd7cf
+License: Apache-2.0 (see LICENSE.txt)
+
+Changes in this site: Reset starts at Level 1; Web Audio resumes after input;
+touch controls prevent long-press selection; the original number sprite is
+bundled locally; Ghost landing preview and consecutive line-clear bonuses are
+added.
