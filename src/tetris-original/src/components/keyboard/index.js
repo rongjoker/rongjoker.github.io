@@ -11,6 +11,11 @@ import { unlockAudio } from '../../unit/music';
 
 export default class Keyboard extends React.Component {
   componentDidMount() {
+    // iOS can show text selection on long press even with user-select: none.
+    const preventSelection = e => e.preventDefault();
+    this.keyboard.addEventListener('touchstart', preventSelection, { passive: false });
+    this.keyboard.addEventListener('contextmenu', preventSelection);
+    this.keyboard.addEventListener('selectstart', preventSelection);
     Object.keys(todo).forEach((key) => {
       const button = this[`dom_${key}`].dom;
       let pressed = false;
@@ -40,6 +45,7 @@ export default class Keyboard extends React.Component {
     return (
       <div
         className={style.keyboard}
+        ref={(c) => { this.keyboard = c; }}
         style={{
           marginTop: 20 + this.props.filling,
         }}
