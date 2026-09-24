@@ -55,6 +55,6 @@ navbar:
   - title: GitHub
     url: https://github.com/rongjoker
   - title: About
-    url: /about/
+    url: /tetris/
 
 exclude: ["gulp", "node_modules", "bower", "bower_components", "config.rb", "src", "Gemfile", "Gemfile.lock", ".rvmrc", ".rbenv-version", "package.json", "gulpfile.js", "README.md", "Rakefile", "changelog.md"]

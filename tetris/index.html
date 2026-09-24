@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#398c85">
+  <meta name="description" content="在浏览器中玩的单机俄罗斯方块">
+  <title>俄罗斯方块 | Magic of Thought</title>
+  <link rel="stylesheet" href="./style.css">
+  <script type="module" src="./app.js"></script>
+</head>
+<body>
+  <header class="site-bar">
+    <a class="site-name" href="/">Magic of Thought</a>
+    <a class="back-link" href="/">返回博客</a>
+  </header>
+  <main class="game-wrap">
+    <div class="heading">
+      <div>
+        <p class="eyebrow">BROWSER GAME · SINGLE PLAYER</p>
+        <h1>俄罗斯方块</h1>
+      </div>
+      <p class="heading-note">按方向键移动，空格直接落下。手机可使用屏幕按钮。</p>
+    </div>
+    <section class="console" aria-label="俄罗斯方块游戏">
+      <div class="console-top"><span>MAGIC OF THOUGHT</span><span>BLOCKS / 01</span></div>
+      <div class="screen">
+        <div class="board-shell">
+          <div id="board" class="board" role="img" aria-label="10列20行游戏棋盘"></div>
+          <div id="overlay" class="overlay" aria-live="polite">
+            <strong id="overlay-title">俄罗斯方块</strong>
+            <span id="overlay-note">点击开始游戏</span>
+          </div>
+        </div>
+        <aside class="stats" aria-label="游戏信息">
+          <div class="stat"><span>最高分</span><strong id="best">0</strong></div>
+          <div class="stat"><span>分数</span><strong id="score">0</strong></div>
+          <div class="stat"><span>消行</span><strong id="lines">0</strong></div>
+          <div class="stat"><span>Level</span><strong id="level">1</strong></div>
+          <div class="stat next-stat"><span>下一个</span><div id="next" class="next" aria-label="下一个方块"></div></div>
+          <div id="status" class="status" role="status">准备开始</div>
+        </aside>
+      </div>
+      <div class="controls">
+        <div class="control-actions">
+          <button id="start" class="action primary" type="button">开始游戏</button>
+          <button id="reset" class="action" type="button">Reset · 回到 Level 1</button>
+          <button id="sound" class="action" type="button" aria-pressed="true">声音：开</button>
+        </div>
+        <div class="control-pad" aria-label="触屏操作">
+          <button data-action="left" type="button" aria-label="左移">←</button>
+          <button data-action="rotate" type="button" aria-label="旋转">↻</button>
+          <button data-action="right" type="button" aria-label="右移">→</button>
+          <button data-action="down" type="button" aria-label="加速下落">↓</button>
+          <button data-action="drop" class="drop-button" type="button" aria-label="直接落下">落下</button>
+        </div>
+      </div>
+    </section>
+    <p class="help">键盘：← → 移动 · ↑ 旋转 · ↓ 加速 · 空格落下 · P 暂停 · R 重开 · S 声音</p>
+  </main>
+</body>
+</html>
